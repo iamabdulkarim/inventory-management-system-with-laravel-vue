@@ -28,8 +28,8 @@
 
           <div class="form-row">
             <div class="col-md-6">
-         <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Enter Your Full Name" v-model="form.name">
-       <small class="text-danger" v-if="errors.name"> {{ errors.name[0] }} </small>
+               <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Enter Your Full Name" v-model="form.name">
+               <small class="text-danger" v-if="errors.name"> {{ errors.name[0] }} </small>
             </div>
 
 

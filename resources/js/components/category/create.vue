@@ -1,4 +1,4 @@
-
+ 
 
 <template>
   
@@ -22,20 +22,23 @@
                     <h1 class="h4 text-gray-900 mb-4">Add Category</h1>
                   </div>
 
-      <form class="user" @submit.prevent="categoryInsert" >
+      <form class="user" @submit.prevent="categoryInsert">
 
         <div class="form-group">
 
           <div class="form-row">
-               <div class="col-md-6">
-               <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Enter Category Name" v-model="form.category_name">
-               <small class="text-danger" v-if="errors.category_name"> {{ errors.category_name[0] }} </small>
-            </div>
-   
+            <div class="col-md-12">
+         <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Enter Your Category Name" v-model="form.category_name">
+  <small class="text-danger" v-if="errors.category_name"> {{ errors.category_name[0] }} </small>
+           
+
+            </div> 
             
           </div>
         </div>
        
+         
+ 
 
 
         <div class="form-group">
@@ -77,12 +80,14 @@
     return {
       form:{
         category_name: null
+        
       },
       errors:{}
     }
   },
 
   methods:{
+    
   categoryInsert(){
        axios.post('/api/category',this.form)
        .then(() => {
