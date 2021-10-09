@@ -100,7 +100,7 @@
               if (result.value) {
                 axios.delete('/api/category/'+id)
                .then(() => {
-                this.categories = this.employees.filter(category => {
+                this.categories = this.categories.filter(category => {
                   return category.id != id
                 })
                })

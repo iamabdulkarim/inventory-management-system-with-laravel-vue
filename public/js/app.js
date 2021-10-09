@@ -2451,7 +2451,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }).then(function (result) {
         if (result.value) {
           axios["delete"]('/api/category/' + id).then(function () {
-            _this3.categories = _this3.employees.filter(function (category) {
+            _this3.categories = _this3.categories.filter(function (category) {
               return category.id != id;
             });
           })["catch"](function () {
