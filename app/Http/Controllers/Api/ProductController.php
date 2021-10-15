@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Model\Product;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+// use App\Model\Poduct;
+
 use DB;
-use App\Model\Product;
 use Image;
+
+
 
 class ProductController extends Controller
 {
@@ -79,7 +83,7 @@ class ProductController extends Controller
             $product->buying_date = $request->buying_date;
             $product->product_quantity = $request->product_quantity;
 
-            $product->photo = $image_url;
+            $product->image = $image_url;
             $product->save();
         } else {
             $product = new Product;

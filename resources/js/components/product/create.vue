@@ -219,23 +219,28 @@
                                                     </small>
                                                 </div>
 
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <label
                                                         for="exampleFormControlSelect1"
-                                                        >Product Quantity</label
+                                                        >product_quantity</label
                                                     >
                                                     <input
                                                         type="text"
                                                         class="form-control"
                                                         id="exampleInputFirstName"
-                                                        v-model="form.product_quantity"
+                                                        v-model="
+                                                            form.product_quantity
+                                                        "
                                                     />
                                                     <small
                                                         class="text-danger"
-                                                        v-if="errors.product_quantity"
+                                                        v-if="
+                                                            errors.product_quantity
+                                                        "
                                                     >
                                                         {{
-                                                            errors.product_quantity[0]
+                                                            errors
+                                                                .product_quantity[0]
                                                         }}
                                                     </small>
                                                 </div>
@@ -316,7 +321,7 @@ export default {
                 selling_price: null,
                 buying_date: null,
                 image: null,
-                product_quantity: null
+                product_quantity: null,
             },
             errors: {},
             categories:{},

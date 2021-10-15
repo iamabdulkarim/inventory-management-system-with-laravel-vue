@@ -4043,6 +4043,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
   created: function created() {
     if (!User.loggedIn()) {
@@ -50789,11 +50794,11 @@ var render = function() {
                               : _vm._e()
                           ]),
                           _vm._v(" "),
-                          _c("div", { staticClass: "col-md-6" }, [
+                          _c("div", { staticClass: "col-md-4" }, [
                             _c(
                               "label",
                               { attrs: { for: "exampleFormControlSelect1" } },
-                              [_vm._v("Product Quantity")]
+                              [_vm._v("product_quantity")]
                             ),
                             _vm._v(" "),
                             _c("input", {
@@ -50802,7 +50807,8 @@ var render = function() {
                                   name: "model",
                                   rawName: "v-model",
                                   value: _vm.form.product_quantity,
-                                  expression: "form.product_quantity"
+                                  expression:
+                                    "\n                                                        form.product_quantity\n                                                    "
                                 }
                               ],
                               staticClass: "form-control",
