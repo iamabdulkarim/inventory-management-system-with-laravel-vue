@@ -47,7 +47,7 @@
                                                         "
                                                     >
                                                         {{
-                                                            error.product_name[0]
+                                                            errors.product_name[0]
                                                         }}
                                                     </small>
                                                 </div>
@@ -93,7 +93,7 @@
                                                         id="exampleFormControlSelect1"
                                                         v-model="form.category_id"
                                                     >
-                                                        <option :value="category.id" v-for="category in categories" >{{category.category_name}}</option>
+                                                        <option :value="category.id" v-for="category in categories" :key="category.id" >{{category.category_name}}</option>
                                                         
                                                     </select>
                                                 </div>
@@ -108,7 +108,7 @@
                                                         id="exampleFormControlSelect1"
                                                         v-model="form.supplier_id"
                                                     >
-                                                        <option :value="supplier.id" v-for="supplier in suppliers" >{{supplier.name}}</option>
+                                                        <option :value="supplier.id" v-for="supplier in suppliers" :key="supplier.id">{{supplier.name}}</option>
                                                         
                                                     </select>
                                                 </div>
@@ -332,11 +332,12 @@ export default {
     created() {
         let id = this.$route.params.id;
         axios
-            .get("/api/employee/" + id)
+            .get("/api/product/" + id)
             .then(({ data }) => (this.form = data))
             .catch(console.log("error"));
 
-            axios.get('/api/category/')
+        axios
+            .get('/api/category/')
             .then(({data}) => (this.categories = data))
 
             axios.get('/api/supplier/')
@@ -356,7 +357,7 @@ export default {
                 reader.readAsDataURL(file);
             }
         },
-        employeeUpdate() {
+        productUpdate() {
             let id = this.$route.params.id;
             axios
                 .patch("/api/product/" + id, this.form)
