@@ -21,7 +21,7 @@
 
                                     <form
                                         class="user"
-                                        @submit.prevent="employeeInsert"
+                                        @submit.prevent="productInsert"
                                         enctype="multipart/form-data"
                                     >
                                         <div class="form-group">
@@ -47,8 +47,7 @@
                                                         "
                                                     >
                                                         {{
-                                                            errors
-                                                                .product_name[0]
+                                                            error.product_name[0]
                                                         }}
                                                     </small>
                                                 </div>
@@ -229,19 +228,14 @@
                                                         type="text"
                                                         class="form-control"
                                                         id="exampleInputFirstName"
-                                                        v-model="
-                                                            form.Product_quantity
-                                                        "
+                                                        v-model="form.product_quantity"
                                                     />
                                                     <small
                                                         class="text-danger"
-                                                        v-if="
-                                                            errors.Product_quantity
-                                                        "
+                                                        v-if="errors.product_quantity"
                                                     >
                                                         {{
-                                                            errors
-                                                                .Product_quantity[0]
+                                                            errors.product_quantity[0]
                                                         }}
                                                     </small>
                                                 </div>
@@ -344,11 +338,11 @@ export default {
                 reader.readAsDataURL(file);
             }
         },
-        employeeInsert() {
+        productInsert() {
             axios
-                .post("/api/employee", this.form)
+                .post("/api/product", this.form)
                 .then(() => {
-                    this.$router.push({ name: "employee" });
+                    this.$router.push({ name: "product" });
                     Notification.success();
                 })
                 .catch(error => (this.errors = error.response.data.errors));

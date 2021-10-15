@@ -4043,12 +4043,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
   created: function created() {
     if (!User.loggedIn()) {
@@ -4095,12 +4089,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         reader.readAsDataURL(file);
       }
     },
-    employeeInsert: function employeeInsert() {
+    productInsert: function productInsert() {
       var _this2 = this;
 
-      axios.post("/api/employee", this.form).then(function () {
+      axios.post("/api/product", this.form).then(function () {
         _this2.$router.push({
-          name: "employee"
+          name: "product"
         });
 
         Notification.success();
@@ -50382,7 +50376,7 @@ var render = function() {
                       on: {
                         submit: function($event) {
                           $event.preventDefault()
-                          return _vm.employeeInsert.apply(null, arguments)
+                          return _vm.productInsert.apply(null, arguments)
                         }
                       }
                     },
@@ -50431,7 +50425,7 @@ var render = function() {
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
                                     "\n                                                    " +
-                                      _vm._s(_vm.errors.product_name[0]) +
+                                      _vm._s(_vm.error.product_name[0]) +
                                       "\n                                                "
                                   )
                                 ])
@@ -50807,9 +50801,8 @@ var render = function() {
                                 {
                                   name: "model",
                                   rawName: "v-model",
-                                  value: _vm.form.Product_quantity,
-                                  expression:
-                                    "\n                                                        form.Product_quantity\n                                                    "
+                                  value: _vm.form.product_quantity,
+                                  expression: "form.product_quantity"
                                 }
                               ],
                               staticClass: "form-control",
@@ -50817,7 +50810,7 @@ var render = function() {
                                 type: "text",
                                 id: "exampleInputFirstName"
                               },
-                              domProps: { value: _vm.form.Product_quantity },
+                              domProps: { value: _vm.form.product_quantity },
                               on: {
                                 input: function($event) {
                                   if ($event.target.composing) {
@@ -50825,18 +50818,18 @@ var render = function() {
                                   }
                                   _vm.$set(
                                     _vm.form,
-                                    "Product_quantity",
+                                    "product_quantity",
                                     $event.target.value
                                   )
                                 }
                               }
                             }),
                             _vm._v(" "),
-                            _vm.errors.Product_quantity
+                            _vm.errors.product_quantity
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
                                     "\n                                                    " +
-                                      _vm._s(_vm.errors.Product_quantity[0]) +
+                                      _vm._s(_vm.errors.product_quantity[0]) +
                                       "\n                                                "
                                   )
                                 ])
