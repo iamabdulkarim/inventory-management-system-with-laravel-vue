@@ -144,6 +144,13 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = DB::table('products')->where('id', $id)->first();
+        $image = $product->image;
+        if ($image) {
+            unlink($image);
+            DB::table('products')->where('id', $id)->delete();
+        } else {
+            DB::table('products')->where('id', $id)->delete();
+        }
     }
 }
