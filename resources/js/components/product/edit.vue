@@ -312,21 +312,35 @@ export default {
     data() {
         return {
             form: {
-                product_name: null,
-                product_code: null,
-                category_id: null,
-                supplier_id: null,
-                root: null,
-                buying_price: null,
-                selling_price: null,
-                buying_date: null,
-                image: null,
-                product_quantity: null,
+                product_name: '',
+                product_code: '',
+                category_id: '',
+                supplier_id: '',
+                root: '',
+                buying_price: '',
+                selling_price: '',
+                buying_date: '',
+                image: '',
+                newimage:'',
+                product_quantity: '',
             },
             errors: {},
             categories:{},
             suppliers:{},
         }
+    },
+    created() {
+        let id = this.$route.params.id;
+        axios
+            .get("/api/employee/" + id)
+            .then(({ data }) => (this.form = data))
+            .catch(console.log("error"));
+
+            axios.get('/api/category/')
+            .then(({data}) => (this.categories = data))
+
+            axios.get('/api/supplier/')
+            .then(({data}) => (this.suppliers = data))
     },
 
     methods: {
@@ -337,7 +351,7 @@ export default {
             } else {
                 let reader = new FileReader();
                 reader.onload = event => {
-                    this.form.newphoto = event.target.result;
+                    this.form.newimage = event.target.result;
                 };
                 reader.readAsDataURL(file);
             }
@@ -345,9 +359,9 @@ export default {
         employeeUpdate() {
             let id = this.$route.params.id;
             axios
-                .patch("/api/employee/" + id, this.form)
+                .patch("/api/product/" + id, this.form)
                 .then(() => {
-                    this.$router.push({ name: "employee" });
+                    this.$router.push({ name: "product" });
                     Notification.success();
                 })
                 .catch(error => (this.errors = error.response.data.errors));
