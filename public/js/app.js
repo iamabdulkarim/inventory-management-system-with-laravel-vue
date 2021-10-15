@@ -4132,6 +4132,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+var _created$data$created;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -4435,7 +4439,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({
+/* harmony default export */ __webpack_exports__["default"] = (_created$data$created = {
   created: function created() {
     if (!User.loggedIn()) {
       this.$router.push({
@@ -4446,56 +4450,72 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       form: {
-        product_name: null,
-        product_code: null,
-        category_id: null,
-        supplier_id: null,
-        root: null,
-        buying_price: null,
-        selling_price: null,
-        buying_date: null,
-        image: null,
-        product_quantity: null
+        product_name: '',
+        product_code: '',
+        category_id: '',
+        supplier_id: '',
+        root: '',
+        buying_price: '',
+        selling_price: '',
+        buying_date: '',
+        image: '',
+        newimage: '',
+        product_quantity: ''
       },
       errors: {},
       categories: {},
       suppliers: {}
     };
-  },
-  methods: {
-    onFileSelected: function onFileSelected(event) {
-      var _this = this;
-
-      var file = event.target.files[0];
-
-      if (file.size > 1048770) {
-        Notification.image_validation();
-      } else {
-        var reader = new FileReader();
-
-        reader.onload = function (event) {
-          _this.form.newphoto = event.target.result;
-        };
-
-        reader.readAsDataURL(file);
-      }
-    },
-    employeeUpdate: function employeeUpdate() {
-      var _this2 = this;
-
-      var id = this.$route.params.id;
-      axios.patch("/api/employee/" + id, this.form).then(function () {
-        _this2.$router.push({
-          name: "employee"
-        });
-
-        Notification.success();
-      })["catch"](function (error) {
-        return _this2.errors = error.response.data.errors;
-      });
-    }
   }
-});
+}, _defineProperty(_created$data$created, "created", function created() {
+  var _this = this;
+
+  var id = this.$route.params.id;
+  axios.get("/api/product/" + id).then(function (_ref) {
+    var data = _ref.data;
+    return _this.form = data;
+  })["catch"](console.log("error"));
+  axios.get('/api/category/').then(function (_ref2) {
+    var data = _ref2.data;
+    return _this.categories = data;
+  });
+  axios.get('/api/supplier/').then(function (_ref3) {
+    var data = _ref3.data;
+    return _this.suppliers = data;
+  });
+}), _defineProperty(_created$data$created, "methods", {
+  onFileSelected: function onFileSelected(event) {
+    var _this2 = this;
+
+    var file = event.target.files[0];
+
+    if (file.size > 1048770) {
+      Notification.image_validation();
+    } else {
+      var reader = new FileReader();
+
+      reader.onload = function (event) {
+        _this2.form.newimage = event.target.result;
+      };
+
+      reader.readAsDataURL(file);
+    }
+  },
+  productUpdate: function productUpdate() {
+    var _this3 = this;
+
+    var id = this.$route.params.id;
+    axios.patch("/api/product/" + id, this.form).then(function () {
+      _this3.$router.push({
+        name: "product"
+      });
+
+      Notification.success();
+    })["catch"](function (error) {
+      return _this3.errors = error.response.data.errors;
+    });
+  }
+}), _created$data$created);
 
 /***/ }),
 
@@ -4510,6 +4530,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
 //
 //
 //
@@ -51625,7 +51646,7 @@ var render = function() {
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
                                     "\n                                                    " +
-                                      _vm._s(_vm.error.product_name[0]) +
+                                      _vm._s(_vm.errors.product_name[0]) +
                                       "\n                                                "
                                   )
                                 ])
@@ -51729,7 +51750,10 @@ var render = function() {
                               _vm._l(_vm.categories, function(category) {
                                 return _c(
                                   "option",
-                                  { domProps: { value: category.id } },
+                                  {
+                                    key: category.id,
+                                    domProps: { value: category.id }
+                                  },
                                   [_vm._v(_vm._s(category.category_name))]
                                 )
                               }),
@@ -51781,7 +51805,10 @@ var render = function() {
                               _vm._l(_vm.suppliers, function(supplier) {
                                 return _c(
                                   "option",
-                                  { domProps: { value: supplier.id } },
+                                  {
+                                    key: supplier.id,
+                                    domProps: { value: supplier.id }
+                                  },
                                   [_vm._v(_vm._s(supplier.name))]
                                 )
                               }),
@@ -52220,6 +52247,8 @@ var render = function() {
                       _c("td", [_vm._v(_vm._s(product.selling_price))]),
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(product.buying_date))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(product.product_quantity))]),
                       _vm._v(" "),
                       _c(
                         "td",
