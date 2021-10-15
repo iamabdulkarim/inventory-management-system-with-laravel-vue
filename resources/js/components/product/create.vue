@@ -360,7 +360,7 @@ export default {
 
             axios.get('/api/supplier/')
             .then(({data}) => (this.suppliers = data))
-        },
+    },
 };
 </script>
 
