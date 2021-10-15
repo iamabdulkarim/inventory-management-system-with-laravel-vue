@@ -110,7 +110,8 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = DB::table('products')->where('id', $id)->first();
+        return response()->json($product);
     }
 
     /**
