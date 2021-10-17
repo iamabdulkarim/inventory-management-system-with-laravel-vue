@@ -27,9 +27,9 @@
                                             <div class="form-row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                      <label for="exampleFormControlTextarea1"><b>Details</b></label>
-                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" v-model="form.details"></textarea>
-                    </div>
+                                                        <label for="exampleFormControlTextarea1"><b>Details</b></label>
+                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" v-model="form.details"></textarea>
+                                                    </div>
                                                     <small
                                                         class="text-danger"
                                                         v-if="
