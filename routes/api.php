@@ -20,4 +20,7 @@ Route::apiResource('/employee', 'Api\EmployeeController');
 Route::apiResource('/supplier', 'Api\SupplierController');
 //Category Route
 Route::apiResource('/category', 'Api\CategoryController');
+//product Route
 Route::apiResource('/product', 'Api\ProductController');
+//expense Route
+Route::apiResource('/expense', 'Api\ExpenseController');

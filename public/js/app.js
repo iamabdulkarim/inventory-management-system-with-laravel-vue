@@ -3534,7 +3534,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       form: {
-        category_name: null
+        details: '',
+        amount: ''
       },
       errors: {}
     };
@@ -3543,9 +3544,9 @@ __webpack_require__.r(__webpack_exports__);
     expenseInsert: function expenseInsert() {
       var _this = this;
 
-      axios.post("/api/category", this.form).then(function () {
+      axios.post("/api/expense", this.form).then(function () {
         _this.$router.push({
-          name: "category"
+          name: "expense"
         });
 
         Notification.success();
@@ -50271,8 +50272,8 @@ var render = function() {
                                   {
                                     name: "model",
                                     rawName: "v-model",
-                                    value: _vm.details,
-                                    expression: "details"
+                                    value: _vm.form.details,
+                                    expression: "form.details"
                                   }
                                 ],
                                 staticClass: "form-control",
@@ -50280,13 +50281,17 @@ var render = function() {
                                   id: "exampleFormControlTextarea1",
                                   rows: "3"
                                 },
-                                domProps: { value: _vm.details },
+                                domProps: { value: _vm.form.details },
                                 on: {
                                   input: function($event) {
                                     if ($event.target.composing) {
                                       return
                                     }
-                                    _vm.details = $event.target.value
+                                    _vm.$set(
+                                      _vm.form,
+                                      "details",
+                                      $event.target.value
+                                    )
                                   }
                                 }
                               })

@@ -28,7 +28,7 @@
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                       <label for="exampleFormControlTextarea1"><b>Details</b></label>
-                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" v-model="details"></textarea>
+                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" v-model="form.details"></textarea>
                     </div>
                                                     <small
                                                         class="text-danger"
@@ -105,7 +105,8 @@ export default {
     data() {
         return {
             form: {
-                category_name: null
+                details: '',
+                amount : '',
             },
             errors: {}
         };
@@ -114,9 +115,9 @@ export default {
     methods: {
         expenseInsert() {
             axios
-                .post("/api/category", this.form)
+                .post("/api/expense", this.form)
                 .then(() => {
-                    this.$router.push({ name: "category" });
+                    this.$router.push({ name: "expense" });
                     Notification.success();
                 })
                 .catch(error => (this.errors = error.response.data.errors));
