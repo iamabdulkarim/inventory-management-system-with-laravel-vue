@@ -57,7 +57,7 @@
                                         >
 
                                         <a
-                                            @click="deleteCategory(expense.id)"
+                                            @click="deleteExpense(expense.id)"
                                             class="btn btn-sm btn-danger"
                                             ><font color="#ffffff"
                                                 >Delete</font
@@ -104,7 +104,7 @@ export default {
                 .then(({ data }) => (this.expenses = data))
                 .catch();
         },
-        deleteCategory(id) {
+        deleteExpense(id) {
             Swal.fire({
                 title: "Are you sure?",
                 text: "You won't be able to revert this!",
@@ -116,16 +116,16 @@ export default {
             }).then(result => {
                 if (result.value) {
                     axios
-                        .delete("/api/category/" + id)
+                        .delete("/api/expense/" + id)
                         .then(() => {
-                            this.categories = this.categories.filter(
-                                category => {
-                                    return category.id != id;
+                            this.expenses = this.expenses.filter(
+                                expense => {
+                                    return expense.id != id;
                                 }
                             );
                         })
                         .catch(() => {
-                            this.$router.push({ name: "category" });
+                            this.$router.push({ name: "expense" });
                         });
                     Swal.fire(
                         "Deleted!",
