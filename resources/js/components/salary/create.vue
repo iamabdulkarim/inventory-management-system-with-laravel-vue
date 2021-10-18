@@ -21,8 +21,7 @@
 
                                     <form
                                         class="user"
-                                        @submit.prevent="employeeUpdate"
-                                       
+                                        @submit.prevent="SalaryPaid"
                                     >
                                         <div class="form-group">
                                             <div class="form-row">
@@ -78,26 +77,55 @@
                                                     <select
                                                         class="form-control"
                                                         id="exampleFormControlSelect1"
-                                                        v-model="form.salary_month"
+                                                        v-model="
+                                                            form.salary_month
+                                                        "
                                                     >
-                                                        <option value="January">January</option>
-                                                        <option value="February">February</option>
-                                                        <option value="March">March</option>
-                                                        <option value="April">April</option>
-                                                        <option value="May">May</option>
-                                                        <option value="June">June</option>
-                                                        <option value="Auguest">Auguest</option>
-                                                        <option value="September">September</option>
-                                                        <option value="October">October</option>
-                                                        <option value="November">November</option>
-                                                        <option value="December">December</option>
-                                                        
+                                                        <option value="January"
+                                                            >January</option
+                                                        >
+                                                        <option value="February"
+                                                            >February</option
+                                                        >
+                                                        <option value="March"
+                                                            >March</option
+                                                        >
+                                                        <option value="April"
+                                                            >April</option
+                                                        >
+                                                        <option value="May"
+                                                            >May</option
+                                                        >
+                                                        <option value="June"
+                                                            >June</option
+                                                        >
+                                                        <option value="Auguest"
+                                                            >Auguest</option
+                                                        >
+                                                        <option
+                                                            value="September"
+                                                            >September</option
+                                                        >
+                                                        <option value="October"
+                                                            >October</option
+                                                        >
+                                                        <option value="November"
+                                                            >November</option
+                                                        >
+                                                        <option value="December"
+                                                            >December</option
+                                                        >
                                                     </select>
                                                     <small
                                                         class="text-danger"
-                                                        v-if="errors.sallery_month"
+                                                        v-if="
+                                                            errors.salary_month
+                                                        "
                                                     >
-                                                        {{ errors.sallery_month[0] }}
+                                                        {{
+                                                            errors
+                                                                .salary_month[0]
+                                                        }}
                                                     </small>
                                                 </div>
 
@@ -123,17 +151,11 @@
                                             </div>
                                         </div>
 
-                                        
-
                                         <div class="form-group">
                                             <div class="form-row">
-                                                
-
                                                 <div class="col-md-6"></div>
                                             </div>
                                         </div>
-
-                                        
 
                                         <div class="form-group">
                                             <button
@@ -170,13 +192,8 @@ export default {
             form: {
                 name: "",
                 email: "",
-                phone: "",
-                sallery: "",
-                address: "",
-                photo: "",
-                newphoto: "",
-                nid: "",
-                joining_date: ""
+                salary_month: "",
+                sallery: ""
             },
             errors: {}
         };
@@ -189,31 +206,20 @@ export default {
             .then(({ data }) => (this.form = data))
             .catch(console.log("error"));
     },
-
     methods: {
-        onFileSelected(event) {
-            let file = event.target.files[0];
-            if (file.size > 1048770) {
-                Notification.image_validation();
-            } else {
-                let reader = new FileReader();
-                reader.onload = event => {
-                    this.form.newphoto = event.target.result;
-                };
-                reader.readAsDataURL(file);
-            }
-        },
-        employeeUpdate() {
+        SalaryPaid() {
             let id = this.$route.params.id;
             axios
-                .patch("/api/employee/" + id, this.form)
+                .post("/api/salary/paid/" + id, this.form)
                 .then(() => {
-                    this.$router.push({ name: "employee" });
+                    this.$router.push({ name: "given-salary" });
                     Notification.success();
                 })
                 .catch(error => (this.errors = error.response.data.errors));
-        }
-    }
+         }
+    },
+
+    
 };
 </script>
 
