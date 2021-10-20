@@ -35,7 +35,7 @@
                         <td> {{ salary.salary_month }} </td>
                         
             <td>
-   <router-link :to="{name: 'pay-salary', params:{id:salary.salary_month}}" class="btn btn-sm btn-primary">View Salary</router-link> 
+   <router-link :to="{name: 'view-salary', params:{id:salary.salary_month}}" class="btn btn-sm btn-primary">View Salary</router-link> 
             </td>
                       </tr>
                     
