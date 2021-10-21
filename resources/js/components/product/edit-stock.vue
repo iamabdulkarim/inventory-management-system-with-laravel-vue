@@ -21,7 +21,7 @@
 
                                     <form
                                         class="user"
-                                        @submit.prevent="productUpdate"
+                                        @submit.prevent="stockUpdate"
                                        
                                     >
                                         
@@ -71,7 +71,7 @@
                                                 type="submit"
                                                 class="btn btn-primary btn-block"
                                             >
-                                                Submit
+                                                Update Stock
                                             </button>
                                         </div>
                                     </form>
@@ -117,12 +117,12 @@ export default {
 
     methods: {
         
-        productUpdate() {
+        stockUpdate() {
             let id = this.$route.params.id;
             axios
-                .patch("/api/product/" + id, this.form)
+                .post("/api/stock/update/" + id, this.form)
                 .then(() => {
-                    this.$router.push({ name: "product" });
+                    this.$router.push({ name: "stock" });
                     Notification.success();
                 })
                 .catch(error => (this.errors = error.response.data.errors));
