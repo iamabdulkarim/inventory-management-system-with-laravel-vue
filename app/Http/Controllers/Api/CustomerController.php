@@ -76,7 +76,8 @@ class CustomerController extends Controller
      */
     public function show($id)
     {
-        //
+        $customer = DB::table('customers')->where('id', $id)->first();
+        return response()->json($customer);
     }
 
 
