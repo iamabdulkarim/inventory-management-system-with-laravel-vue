@@ -17,7 +17,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $customer = Customer::all();
+        $customer = DB::table('customers')->orderBy('id', 'DESC')->get();
         return response()->json($customer);
     }
 
