@@ -34,7 +34,7 @@
               <span>Dashboard</span></rout>
           </li>
           <li class="nav-item ">
-            <router-link class="nav-link" to="/home">
+            <router-link class="nav-link" to="/pos">
               <i class="fas fa-fw fa-tachometer-alt"></i>
               <span>POS</span></rout>
           </li>
