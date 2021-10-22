@@ -65,7 +65,7 @@
                                         >
 
                                         <a
-                                            @click="deleteEmployee(customer.id)"
+                                            @click="deleteCustomer(customer.id)"
                                             class="btn btn-sm btn-danger"
                                             ><font color="#ffffff"
                                                 >Delete</font
@@ -112,7 +112,7 @@ export default {
                 .then(({ data }) => (this.customers = data))
                 .catch();
         },
-        deleteEmployee(id) {
+        deleteCustomer(id) {
             Swal.fire({
                 title: "Are you sure?",
                 text: "You won't be able to revert this!",
@@ -124,14 +124,14 @@ export default {
             }).then(result => {
                 if (result.value) {
                     axios
-                        .delete("/api/employee/" + id)
+                        .delete("/api/customer/" + id)
                         .then(() => {
-                            this.employees = this.employees.filter(employee => {
-                                return employee.id != id;
+                            this.customers = this.customers.filter(customer => {
+                                return customer.id != id;
                             });
                         })
                         .catch(() => {
-                            this.$router.push({ name: "employee" });
+                            this.$router.push({ name: "customer" });
                         });
                     Swal.fire(
                         "Deleted!",

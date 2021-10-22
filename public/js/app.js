@@ -3028,7 +3028,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         return _this2.customers = data;
       })["catch"]();
     },
-    deleteEmployee: function deleteEmployee(id) {
+    deleteCustomer: function deleteCustomer(id) {
       var _this3 = this;
 
       Swal.fire({
@@ -3041,13 +3041,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         confirmButtonText: "Yes, delete it!"
       }).then(function (result) {
         if (result.value) {
-          axios["delete"]("/api/employee/" + id).then(function () {
-            _this3.employees = _this3.employees.filter(function (employee) {
-              return employee.id != id;
+          axios["delete"]("/api/customer/" + id).then(function () {
+            _this3.customers = _this3.customers.filter(function (customer) {
+              return customer.id != id;
             });
           })["catch"](function () {
             _this3.$router.push({
-              name: "employee"
+              name: "customer"
             });
           });
           Swal.fire("Deleted!", "Your file has been deleted.", "success");
@@ -51272,7 +51272,7 @@ var render = function() {
       [
         _c(
           "router-link",
-          { staticClass: "btn btn-primary", attrs: { to: " customer" } },
+          { staticClass: "btn btn-primary", attrs: { to: " /customer" } },
           [_vm._v("All Customer\n        ")]
         )
       ],
@@ -51728,7 +51728,7 @@ var render = function() {
                               staticClass: "btn btn-sm btn-danger",
                               on: {
                                 click: function($event) {
-                                  return _vm.deleteEmployee(customer.id)
+                                  return _vm.deleteCustomer(customer.id)
                                 }
                               }
                             },
