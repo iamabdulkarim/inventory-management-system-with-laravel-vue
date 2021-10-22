@@ -4699,13 +4699,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return _this.form = data;
   })["catch"](console.log("error"));
 }), _defineProperty(_created$data$created, "methods", {
-  productUpdate: function productUpdate() {
+  stockUpdate: function stockUpdate() {
     var _this2 = this;
 
     var id = this.$route.params.id;
-    axios.patch("/api/product/" + id, this.form).then(function () {
+    axios.post("/api/stock/update/" + id, this.form).then(function () {
       _this2.$router.push({
-        name: "product"
+        name: "stock"
       });
 
       Notification.success();
@@ -54036,7 +54036,7 @@ var render = function() {
                       on: {
                         submit: function($event) {
                           $event.preventDefault()
-                          return _vm.productUpdate.apply(null, arguments)
+                          return _vm.stockUpdate.apply(null, arguments)
                         }
                       }
                     },
@@ -54134,7 +54134,7 @@ var staticRenderFns = [
         { staticClass: "btn btn-primary btn-block", attrs: { type: "submit" } },
         [
           _vm._v(
-            "\n                                            Submit\n                                        "
+            "\n                                            Update Stock\n                                        "
           )
         ]
       )
