@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link href="{{asset('backend/img/logo/logo.png')}}" rel="icon">
-  <title>RuangAdmin - Dashboard</title>
+  <link href="{{asset('backend/img/logo/infinetics.png')}}" rel="icon">
+  <title>infinetics Inventory- Dashboard</title>
   <link rel="stylesheet" href="{{asset('css/app.css')}}">
   <link href="{{asset('backend/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
   <link href="{{asset('backend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
@@ -23,15 +23,20 @@
         <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
           <router-link class="sidebar-brand d-flex align-items-center justify-content-center" to="/home">
             <div class="sidebar-brand-icon">
-              <img src="{{asset('backend/img/logo/logo2.png')}}">
+              <img src="{{asset('backend/img/logo/infinetics.png')}}">
             </div>
-            <div class="sidebar-brand-text mx-3">RuangAdmin</div>
+            <div class="sidebar-brand-text mx-3">Infinetics</div>
           </router-link>
           <hr class="sidebar-divider my-0">
           <li class="nav-item active">
             <router-link class="nav-link" to="/home">
               <i class="fas fa-fw fa-tachometer-alt"></i>
               <span>Dashboard</span></rout>
+          </li>
+          <li class="nav-item ">
+            <router-link class="nav-link" to="/home">
+              <i class="fas fa-fw fa-tachometer-alt"></i>
+              <span>POS</span></rout>
           </li>
           <hr class="sidebar-divider">
           <div class="sidebar-heading">
@@ -109,6 +114,37 @@
               </div>
             </div>
           </li>
+
+
+
+
+
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap7" aria-expanded="true" aria-controls="collapseBootstrap7">
+              <i class="far fa-fw fa-window-maximize"></i>
+              <span>Customer</span>
+            </a>
+            <div id="collapseBootstrap7" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+              <div class="bg-white py-2 collapse-inner rounded">
+
+                <router-link to="/store-customer" class="collapse-item">Add Customer</router-link>
+                <router-link to="/customer" class="collapse-item">All Customer</router-link>
+
+              </div>
+            </div>
+          </li>
+
+
+
+
+
+
+
+
+
+
+
+
           <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap5" aria-expanded="true" aria-controls="collapseBootstrap5">
               <i class="far fa-fw fa-window-maximize"></i>
@@ -128,12 +164,6 @@
 
 
 
-
-
-
-
-
-
           <li class="nav-item">
             <router-link class="nav-link" to="/stock">
               <i class="fab fa-fw fa-wpforms"></i>
@@ -143,13 +173,13 @@
           <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true" aria-controls="collapseTable">
               <i class="fas fa-fw fa-table"></i>
-              <span>Tables</span>
+              <span>Reports</span>
             </a>
             <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Tables</h6>
-                <a class="collapse-item" href="simple-tables.html">Simple Tables</a>
-                <a class="collapse-item" href="datatables.html">DataTables</a>
+                <!-- <h6 class="collapse-header">Reports</h6> -->
+                <a class="collapse-item" href="simple-tables.html">Report One</a>
+                <a class="collapse-item" href="datatables.html">Report Two</a>
               </div>
             </div>
           </li>
