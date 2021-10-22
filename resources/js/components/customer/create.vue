@@ -195,11 +195,11 @@ export default {
                 reader.readAsDataURL(file);
             }
         },
-        employeeInsert() {
+        customerInsert() {
             axios
-                .post("/api/employee", this.form)
+                .post("/api/customer", this.form)
                 .then(() => {
-                    this.$router.push({ name: "employee" });
+                    this.$router.push({ name: "customer" });
                     Notification.success();
                 })
                 .catch(error => (this.errors = error.response.data.errors));
