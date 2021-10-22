@@ -3125,9 +3125,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     var _this3 = this;
 
     var id = this.$route.params.id;
-    axios.patch("/api/employee/" + id, this.form).then(function () {
+    axios.patch("/api/customer/" + id, this.form).then(function () {
       _this3.$router.push({
-        name: "employee"
+        name: "customer"
       });
 
       Notification.success();

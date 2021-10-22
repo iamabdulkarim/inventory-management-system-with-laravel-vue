@@ -207,9 +207,9 @@ export default {
         customerUpdate() {
             let id = this.$route.params.id;
             axios
-                .patch("/api/employee/" + id, this.form)
+                .patch("/api/customer/" + id, this.form)
                 .then(() => {
-                    this.$router.push({ name: "employee" });
+                    this.$router.push({ name: "customer" });
                     Notification.success();
                 })
                 .catch(error => (this.errors = error.response.data.errors));
