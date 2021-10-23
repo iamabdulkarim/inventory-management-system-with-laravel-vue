@@ -43,7 +43,7 @@
                                             id="em_photo" class="card-img-top" >
                                 <div class="card-body">
                                     <h6 class="card-title">{{ product.product_name }}</h6>
-                                    <span class="badge badge-success" v-if="product.product_quantity >=1">Avilable</span>
+                                    <span class="badge badge-success" v-if="product.product_quantity >=1">Avilable {{ product.product_quantity }}</span>
                                    <span class="badge badge-danger" v-else="">Stock Out</span>
                                     
                                 </div>

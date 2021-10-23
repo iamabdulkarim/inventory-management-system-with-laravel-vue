@@ -55221,7 +55221,12 @@ var render = function() {
                                 ? _c(
                                     "span",
                                     { staticClass: "badge badge-success" },
-                                    [_vm._v("Avilable")]
+                                    [
+                                      _vm._v(
+                                        "Avilable " +
+                                          _vm._s(product.product_quantity)
+                                      )
+                                    ]
                                   )
                                 : _c(
                                     "span",
