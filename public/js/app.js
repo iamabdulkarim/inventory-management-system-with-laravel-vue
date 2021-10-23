@@ -5015,28 +5015,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = (_created$created$data = {
   created: function created() {
     if (!User.loggedIn()) {
@@ -5051,9 +5029,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 }), _defineProperty(_created$created$data, "data", function data() {
   return {
     products: [],
-    categories: '',
+    categories: "",
     getproducts: [],
-    searchTerm: ""
+    searchTerm: "",
+    getsearchTerm: ""
   };
 }), _defineProperty(_created$created$data, "computed", {
   filtersearch: function filtersearch() {
@@ -5067,7 +5046,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     var _this2 = this;
 
     return this.getproducts.filter(function (getproduct) {
-      return getproduct.product_name.match(_this2.searchTerm);
+      return getproduct.product_name.match(_this2.getsearchTerm);
     });
   }
 }), _defineProperty(_created$created$data, "methods", {
@@ -12265,7 +12244,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n#em_photo[data-v-e7fc9010] {\r\n    height: 100px;\r\n    width: 135px;\n}\r\n", ""]);
+exports.push([module.i, "\n#em_photo[data-v-e7fc9010] {\r\n  height: 100px;\r\n  width: 135px;\n}\r\n", ""]);
 
 // exports
 
@@ -55478,9 +55457,9 @@ var render = function() {
                                           { staticClass: "card-title" },
                                           [
                                             _vm._v(
-                                              "\n                                                " +
+                                              "\n                            " +
                                                 _vm._s(product.product_name) +
-                                                "\n                                            "
+                                                "\n                          "
                                             )
                                           ]
                                         ),
@@ -55494,7 +55473,7 @@ var render = function() {
                                               },
                                               [
                                                 _vm._v(
-                                                  "Avilable\n                                                " +
+                                                  "Avilable " +
                                                     _vm._s(
                                                       product.product_quantity
                                                     )
@@ -55538,8 +55517,8 @@ var render = function() {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.searchTerm,
-                            expression: "searchTerm"
+                            value: _vm.getsearchTerm,
+                            expression: "getsearchTerm"
                           }
                         ],
                         staticClass: "form-control",
@@ -55548,13 +55527,13 @@ var render = function() {
                           "margin-bottom": "10px"
                         },
                         attrs: { type: "text", placeholder: "Search product" },
-                        domProps: { value: _vm.searchTerm },
+                        domProps: { value: _vm.getsearchTerm },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.searchTerm = $event.target.value
+                            _vm.getsearchTerm = $event.target.value
                           }
                         }
                       }),
@@ -55592,9 +55571,9 @@ var render = function() {
                                     _c("div", { staticClass: "card-body" }, [
                                       _c("h6", { staticClass: "card-title" }, [
                                         _vm._v(
-                                          "\n                                                " +
+                                          "\n                          " +
                                             _vm._s(getproduct.product_name) +
-                                            "\n                                            "
+                                            "\n                        "
                                         )
                                       ]),
                                       _vm._v(" "),
@@ -55606,7 +55585,7 @@ var render = function() {
                                             },
                                             [
                                               _vm._v(
-                                                "Avilable\n                                                " +
+                                                "Avilable " +
                                                   _vm._s(
                                                     getproduct.product_quantity
                                                   )
@@ -55666,7 +55645,7 @@ var staticRenderFns = [
               staticClass: "breadcrumb-item active",
               attrs: { "aria-current": "page" }
             },
-            [_vm._v("\n                    POS\n                ")]
+            [_vm._v("POS")]
           )
         ])
       ]
@@ -55682,13 +55661,11 @@ var staticRenderFns = [
           "div",
           {
             staticClass:
-              "\n            card-header\n            py-3\n            d-flex\n            flex-row\n            align-items-center\n            justify-content-between\n          "
+              "\n              card-header\n              py-3\n              d-flex\n              flex-row\n              align-items-center\n              justify-content-between\n            "
           },
           [
             _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
-              _vm._v(
-                "\n                            Monthly Recap Report\n                        "
-              )
+              _vm._v("\n              Monthly Recap Report\n            ")
             ])
           ]
         ),
@@ -55707,13 +55684,11 @@ var staticRenderFns = [
       "div",
       {
         staticClass:
-          "\n            card-header\n            py-3\n            d-flex\n            flex-row\n            align-items-center\n            justify-content-between\n          "
+          "\n              card-header\n              py-3\n              d-flex\n              flex-row\n              align-items-center\n              justify-content-between\n            "
       },
       [
         _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
-          _vm._v(
-            "\n                            Products Sold\n                        "
-          )
+          _vm._v("Products Sold")
         ])
       ]
     )
