@@ -69,7 +69,8 @@
                                     >All Product</a
                                 >
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" v-for="category in categories"
+                                    :key="category.id">
                                 <a
                                     class="nav-link"
                                     id="profile-tab"
@@ -78,7 +79,8 @@
                                     role="tab"
                                     aria-controls="profile"
                                     aria-selected="false"
-                                    >Profile</a
+                                    @click="subProduct(category.id)"
+                                    >{{category.category_name}}</a
                                 >
                             </li>
                             
@@ -171,10 +173,13 @@ export default {
     },
     created() {
         this.allProduct();
+        this.allCategory();
     },
     data() {
         return {
             products: [],
+            categories:'',
+            getproducts:[],
             searchTerm: ""
         };
     },
@@ -192,7 +197,20 @@ export default {
                 .get("/api/product/")
                 .then(({ data }) => (this.products = data))
                 .catch();
+        },
+        allCategory() {
+            axios
+                .get("/api/category/")
+                .then(({ data }) => (this.categories = data))
+                .catch();
+        },
+        subProduct(id) {
+            axios
+                .get("/api/getting/product/"+id)
+                .then(({ data }) => (this.getproducts = data))
+                .catch();
         }
+       
     }
 };
 </script>
