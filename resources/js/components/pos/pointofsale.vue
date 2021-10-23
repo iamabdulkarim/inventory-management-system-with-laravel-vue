@@ -149,7 +149,54 @@
                                 role="tabpanel"
                                 aria-labelledby="profile-tab"
                             >
-                               
+                               <input
+                                type="text"
+                                v-model="searchTerm"
+                                class="form-control"
+                                style="width: 760px; margin-bottom: 10px"
+                                placeholder="Search product"
+                            />
+                            <div class="row">
+                                <div
+                                    class="col-lg-3 col-md-3 col-sm-6 col-6"
+                                    v-for="getproduct in getfiltersearch"
+                                    :key="getproduct.id"
+                                >
+                                    <a href="#">
+                                        <div
+                                            class="card"
+                                            style="width: 8.5rem; margin-bottom: 10px"
+                                        >
+                                            <img
+                                                :src="getproduct.image"
+                                                id="em_photo"
+                                                class="card-img-top"
+                                            />
+                                            <div class="card-body">
+                                                <h6 class="card-title">
+                                                    {{getproduct.product_name }}
+                                                </h6>
+                                                <span
+                                                    class="badge badge-success"
+                                                    v-if="
+                                                        getproduct.product_quantity >=
+                                                            1
+                                                    "
+                                                    >Avilable
+                                                    {{
+                                                        getproduct.product_quantity
+                                                    }}</span
+                                                >
+                                                <span
+                                                    class="badge badge-danger"
+                                                    v-else=""
+                                                    >Stock Out</span
+                                                >
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
                             </div>
                             
                         </div>
@@ -187,6 +234,11 @@ export default {
         filtersearch() {
             return this.products.filter(product => {
                 return product.product_name.match(this.searchTerm);
+            });
+        },
+        getfiltersearch() {
+            return this.getproducts.filter(getproduct => {
+                return getproduct.product_name.match(this.searchTerm);
             });
         }
     },
