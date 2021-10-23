@@ -34,6 +34,13 @@
                  
                 </div>
                 <div class="card-body">
+                   <input
+                        type="text"
+                        v-model="searchTerm"
+                        class="form-control"
+                        style="width:760px; margin-bottom:10px;"
+                        placeholder="Search product"
+                      />
                     <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-6 col-6" v-for="product in filtersearch"
                                     :key="product.id">
@@ -42,6 +49,7 @@
                                 <img :src="product.image"
                                             id="em_photo" class="card-img-top" >
                                 <div class="card-body">
+                                     
                                     <h6 class="card-title">{{ product.product_name }}</h6>
                                     <span class="badge badge-success" v-if="product.product_quantity >=1">Avilable {{ product.product_quantity }}</span>
                                    <span class="badge badge-danger" v-else="">Stock Out</span>
