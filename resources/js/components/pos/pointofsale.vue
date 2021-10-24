@@ -30,16 +30,9 @@
               </h6>
               <a class="btn btn-sm btn-info" href=""><font color="#fff"></font>Add customer</a>
             </div>
-            <div class="card-body">
-              <div class="chart-area">
-
-                <div class="col-xl-8 col-lg-7 mb-4">
-              <div class="card">
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Invoice</h6>
-                  <a class="m-0 float-right btn btn-danger btn-sm" href="#">View More <i
-                      class="fas fa-chevron-right"></i></a>
-                </div>
+            
+           
+               
                 <div class="table-responsive">
                   <table class="table align-items-center table-flush">
                     <thead class="thead-light">
@@ -91,8 +84,12 @@
                   </table>
                 </div>
                 <div class="card-footer"></div>
-              </div>
-            </div>
+             
+            
+            <div class="card-body">
+              <div class="chart-area">
+
+                
 
               </div>
             </div>

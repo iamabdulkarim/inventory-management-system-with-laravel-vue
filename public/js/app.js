@@ -5076,9 +5076,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = (_created$created$data = {
   created: function created() {
     if (!User.loggedIn()) {
@@ -55420,13 +55417,17 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _vm._m(1)
+              _vm._m(1),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-footer" }),
+              _vm._v(" "),
+              _vm._m(2)
             ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-xl-7 col-lg-7" }, [
             _c("div", { staticClass: "card mb-4" }, [
-              _vm._m(2),
+              _vm._m(3),
               _vm._v(" "),
               _c(
                 "ul",
@@ -55435,7 +55436,7 @@ var render = function() {
                   attrs: { id: "myTab", role: "tablist" }
                 },
                 [
-                  _vm._m(3),
+                  _vm._m(4),
                   _vm._v(" "),
                   _vm._l(_vm.categories, function(category) {
                     return _c(
@@ -55748,198 +55749,142 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-body" }, [
-      _c("div", { staticClass: "chart-area" }, [
-        _c("div", { staticClass: "col-xl-8 col-lg-7 mb-4" }, [
-          _c("div", { staticClass: "card" }, [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "card-header py-3 d-flex flex-row align-items-center justify-content-between"
-              },
-              [
-                _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
-                  _vm._v("Invoice")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "m-0 float-right btn btn-danger btn-sm",
-                    attrs: { href: "#" }
-                  },
-                  [
-                    _vm._v("View More "),
-                    _c("i", { staticClass: "fas fa-chevron-right" })
-                  ]
-                )
-              ]
-            ),
+    return _c("div", { staticClass: "table-responsive" }, [
+      _c("table", { staticClass: "table align-items-center table-flush" }, [
+        _c("thead", { staticClass: "thead-light" }, [
+          _c("tr", [
+            _c("th", [_vm._v("Order ID")]),
             _vm._v(" "),
-            _c("div", { staticClass: "table-responsive" }, [
-              _c(
-                "table",
-                { staticClass: "table align-items-center table-flush" },
-                [
-                  _c("thead", { staticClass: "thead-light" }, [
-                    _c("tr", [
-                      _c("th", [_vm._v("Order ID")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Customer")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Item")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Status")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Action")])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("tbody", [
-                    _c("tr", [
-                      _c("td", [
-                        _c("a", { attrs: { href: "#" } }, [_vm._v("RA0449")])
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("Udin Wayang")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("Nasi Padang")]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("span", { staticClass: "badge badge-success" }, [
-                          _vm._v("Delivered")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-sm btn-primary",
-                            attrs: { href: "#" }
-                          },
-                          [_vm._v("Detail")]
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", [
-                        _c("a", { attrs: { href: "#" } }, [_vm._v("RA5324")])
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("Jaenab Bajigur")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("Gundam 90' Edition")]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("span", { staticClass: "badge badge-warning" }, [
-                          _vm._v("Shipping")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-sm btn-primary",
-                            attrs: { href: "#" }
-                          },
-                          [_vm._v("Detail")]
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", [
-                        _c("a", { attrs: { href: "#" } }, [_vm._v("RA8568")])
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("Rivat Mahesa")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("Oblong T-Shirt")]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("span", { staticClass: "badge badge-danger" }, [
-                          _vm._v("Pending")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-sm btn-primary",
-                            attrs: { href: "#" }
-                          },
-                          [_vm._v("Detail")]
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", [
-                        _c("a", { attrs: { href: "#" } }, [_vm._v("RA1453")])
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("Indri Junanda")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("Hat Rounded")]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("span", { staticClass: "badge badge-info" }, [
-                          _vm._v("Processing")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-sm btn-primary",
-                            attrs: { href: "#" }
-                          },
-                          [_vm._v("Detail")]
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("td", [
-                        _c("a", { attrs: { href: "#" } }, [_vm._v("RA1998")])
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("Udin Cilok")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("Baby Powder")]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("span", { staticClass: "badge badge-success" }, [
-                          _vm._v("Delivered")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-sm btn-primary",
-                            attrs: { href: "#" }
-                          },
-                          [_vm._v("Detail")]
-                        )
-                      ])
-                    ])
-                  ])
-                ]
-              )
+            _c("th", [_vm._v("Customer")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("Item")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("Status")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("Action")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("tbody", [
+          _c("tr", [
+            _c("td", [_c("a", { attrs: { href: "#" } }, [_vm._v("RA0449")])]),
+            _vm._v(" "),
+            _c("td", [_vm._v("Udin Wayang")]),
+            _vm._v(" "),
+            _c("td", [_vm._v("Nasi Padang")]),
+            _vm._v(" "),
+            _c("td", [
+              _c("span", { staticClass: "badge badge-success" }, [
+                _vm._v("Delivered")
+              ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "card-footer" })
+            _c("td", [
+              _c(
+                "a",
+                { staticClass: "btn btn-sm btn-primary", attrs: { href: "#" } },
+                [_vm._v("Detail")]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("td", [_c("a", { attrs: { href: "#" } }, [_vm._v("RA5324")])]),
+            _vm._v(" "),
+            _c("td", [_vm._v("Jaenab Bajigur")]),
+            _vm._v(" "),
+            _c("td", [_vm._v("Gundam 90' Edition")]),
+            _vm._v(" "),
+            _c("td", [
+              _c("span", { staticClass: "badge badge-warning" }, [
+                _vm._v("Shipping")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("td", [
+              _c(
+                "a",
+                { staticClass: "btn btn-sm btn-primary", attrs: { href: "#" } },
+                [_vm._v("Detail")]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("td", [_c("a", { attrs: { href: "#" } }, [_vm._v("RA8568")])]),
+            _vm._v(" "),
+            _c("td", [_vm._v("Rivat Mahesa")]),
+            _vm._v(" "),
+            _c("td", [_vm._v("Oblong T-Shirt")]),
+            _vm._v(" "),
+            _c("td", [
+              _c("span", { staticClass: "badge badge-danger" }, [
+                _vm._v("Pending")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("td", [
+              _c(
+                "a",
+                { staticClass: "btn btn-sm btn-primary", attrs: { href: "#" } },
+                [_vm._v("Detail")]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("td", [_c("a", { attrs: { href: "#" } }, [_vm._v("RA1453")])]),
+            _vm._v(" "),
+            _c("td", [_vm._v("Indri Junanda")]),
+            _vm._v(" "),
+            _c("td", [_vm._v("Hat Rounded")]),
+            _vm._v(" "),
+            _c("td", [
+              _c("span", { staticClass: "badge badge-info" }, [
+                _vm._v("Processing")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("td", [
+              _c(
+                "a",
+                { staticClass: "btn btn-sm btn-primary", attrs: { href: "#" } },
+                [_vm._v("Detail")]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("td", [_c("a", { attrs: { href: "#" } }, [_vm._v("RA1998")])]),
+            _vm._v(" "),
+            _c("td", [_vm._v("Udin Cilok")]),
+            _vm._v(" "),
+            _c("td", [_vm._v("Baby Powder")]),
+            _vm._v(" "),
+            _c("td", [
+              _c("span", { staticClass: "badge badge-success" }, [
+                _vm._v("Delivered")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("td", [
+              _c(
+                "a",
+                { staticClass: "btn btn-sm btn-primary", attrs: { href: "#" } },
+                [_vm._v("Detail")]
+              )
+            ])
           ])
         ])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-body" }, [
+      _c("div", { staticClass: "chart-area" })
     ])
   },
   function() {
