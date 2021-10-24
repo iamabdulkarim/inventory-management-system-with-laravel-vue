@@ -5048,34 +5048,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = (_created$created$data = {
   created: function created() {
     if (!User.loggedIn()) {
@@ -55753,13 +55725,13 @@ var staticRenderFns = [
       _c("table", { staticClass: "table align-items-center table-flush" }, [
         _c("thead", { staticClass: "thead-light" }, [
           _c("tr", [
-            _c("th", [_vm._v("Order ID")]),
+            _c("th", [_vm._v("Name")]),
             _vm._v(" "),
-            _c("th", [_vm._v("Customer")]),
+            _c("th", [_vm._v("Quantity")]),
             _vm._v(" "),
-            _c("th", [_vm._v("Item")]),
+            _c("th", [_vm._v("Unit")]),
             _vm._v(" "),
-            _c("th", [_vm._v("Status")]),
+            _c("th", [_vm._v("Total")]),
             _vm._v(" "),
             _c("th", [_vm._v("Action")])
           ])
@@ -55772,94 +55744,6 @@ var staticRenderFns = [
             _c("td", [_vm._v("Udin Wayang")]),
             _vm._v(" "),
             _c("td", [_vm._v("Nasi Padang")]),
-            _vm._v(" "),
-            _c("td", [
-              _c("span", { staticClass: "badge badge-success" }, [
-                _vm._v("Delivered")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("td", [
-              _c(
-                "a",
-                { staticClass: "btn btn-sm btn-primary", attrs: { href: "#" } },
-                [_vm._v("Detail")]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("tr", [
-            _c("td", [_c("a", { attrs: { href: "#" } }, [_vm._v("RA5324")])]),
-            _vm._v(" "),
-            _c("td", [_vm._v("Jaenab Bajigur")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("Gundam 90' Edition")]),
-            _vm._v(" "),
-            _c("td", [
-              _c("span", { staticClass: "badge badge-warning" }, [
-                _vm._v("Shipping")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("td", [
-              _c(
-                "a",
-                { staticClass: "btn btn-sm btn-primary", attrs: { href: "#" } },
-                [_vm._v("Detail")]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("tr", [
-            _c("td", [_c("a", { attrs: { href: "#" } }, [_vm._v("RA8568")])]),
-            _vm._v(" "),
-            _c("td", [_vm._v("Rivat Mahesa")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("Oblong T-Shirt")]),
-            _vm._v(" "),
-            _c("td", [
-              _c("span", { staticClass: "badge badge-danger" }, [
-                _vm._v("Pending")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("td", [
-              _c(
-                "a",
-                { staticClass: "btn btn-sm btn-primary", attrs: { href: "#" } },
-                [_vm._v("Detail")]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("tr", [
-            _c("td", [_c("a", { attrs: { href: "#" } }, [_vm._v("RA1453")])]),
-            _vm._v(" "),
-            _c("td", [_vm._v("Indri Junanda")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("Hat Rounded")]),
-            _vm._v(" "),
-            _c("td", [
-              _c("span", { staticClass: "badge badge-info" }, [
-                _vm._v("Processing")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("td", [
-              _c(
-                "a",
-                { staticClass: "btn btn-sm btn-primary", attrs: { href: "#" } },
-                [_vm._v("Detail")]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("tr", [
-            _c("td", [_c("a", { attrs: { href: "#" } }, [_vm._v("RA1998")])]),
-            _vm._v(" "),
-            _c("td", [_vm._v("Udin Cilok")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("Baby Powder")]),
             _vm._v(" "),
             _c("td", [
               _c("span", { staticClass: "badge badge-success" }, [
