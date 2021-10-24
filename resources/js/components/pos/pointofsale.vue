@@ -26,11 +26,16 @@
               "
             >
               <h6 class="m-0 font-weight-bold text-primary">
-                Monthly Recap Report
+                Expense Insert
               </h6>
+              <a class="btn btn-sm btn-info" href=""><font color="#fff"></font>Add customer</a>
             </div>
             <div class="card-body">
-              <div class="chart-area"></div>
+              <div class="chart-area">
+
+
+
+              </div>
             </div>
           </div>
         </div>
