@@ -5048,6 +5048,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = (_created$created$data = {
   created: function created() {
     if (!User.loggedIn()) {
@@ -55393,13 +55396,15 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "card-footer" }),
               _vm._v(" "),
-              _vm._m(2)
+              _vm._m(2),
+              _vm._v(" "),
+              _vm._m(3)
             ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-xl-7 col-lg-7" }, [
             _c("div", { staticClass: "card mb-4" }, [
-              _vm._m(3),
+              _vm._m(4),
               _vm._v(" "),
               _c(
                 "ul",
@@ -55408,7 +55413,7 @@ var render = function() {
                   attrs: { id: "myTab", role: "tablist" }
                 },
                 [
-                  _vm._m(4),
+                  _vm._m(5),
                   _vm._v(" "),
                   _vm._l(_vm.categories, function(category) {
                     return _c(
@@ -55739,28 +55744,33 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("tbody", [
           _c("tr", [
-            _c("td", [_c("a", { attrs: { href: "#" } }, [_vm._v("RA0449")])]),
+            _c("td", [_vm._v("Name")]),
             _vm._v(" "),
-            _c("td", [_vm._v("Udin Wayang")]),
+            _c("td", [_vm._v("Quantity")]),
             _vm._v(" "),
-            _c("td", [_vm._v("Nasi Padang")]),
+            _c("td", [_vm._v("unit")]),
             _vm._v(" "),
-            _c("td", [
-              _c("span", { staticClass: "badge badge-success" }, [
-                _vm._v("Delivered")
-              ])
-            ]),
+            _c("td", [_vm._v("total")]),
             _vm._v(" "),
-            _c("td", [
-              _c(
-                "a",
-                { staticClass: "btn btn-sm btn-primary", attrs: { href: "#" } },
-                [_vm._v("Detail")]
-              )
-            ])
+            _c("td", [_vm._v("X")])
           ])
         ])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "list-group" }, [
+      _c(
+        "li",
+        {
+          staticClass:
+            "list-group d-flex justify-content-between align-item-center"
+        },
+        [_vm._v("Total Quantity")]
+      )
     ])
   },
   function() {

@@ -45,18 +45,21 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td><a href="#">RA0449</a></td>
-                        <td>Udin Wayang</td>
-                        <td>Nasi Padang</td>
-                        <td><span class="badge badge-success">Delivered</span></td>
-                        <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
+                        <td>Name</td>
+                        <td>Quantity</td>
+                        <td>unit</td>
+                        <td>total</td>
+                        <td>X</td>
                       </tr>
                       
                     </tbody>
                   </table>
                 </div>
                 <div class="card-footer"></div>
-             
+                    <ul class="list-group">
+                        <li class="list-group d-flex justify-content-between align-item-center">Total Quantity</li>
+                    </ul>
+
             
             <div class="card-body">
               <div class="chart-area">
