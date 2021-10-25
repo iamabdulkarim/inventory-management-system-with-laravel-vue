@@ -57,19 +57,28 @@
                 </div>
                 <div class="card-footer"></div>
                     <ul class="list-group">
-                        <li class="list-group d-flex justify-content-between align-item-center">Total Quantity
+                        <li class="list-group-item d-flex justify-content-between align-item-center">Total Quantity
                           <strong>56</strong>
                         </li>
-                        <li class="list-group d-flex justify-content-between align-item-center">Sub Total
+                        <li class="list-group-item d-flex justify-content-between align-item-center">Sub Total
                           <strong>56</strong>
                         </li>
-                        <li class="list-group d-flex justify-content-between align-item-center">Vat:
+                        <li class="list-group-item d-flex justify-content-between align-item-center">Vat:
                           <strong>56</strong>
                         </li>
-                        <li class="list-group d-flex justify-content-between align-item-center">Total Amount
+                        <li class="list-group-item d-flex justify-content-between align-item-center">Total Amount
                           <strong>56</strong>
                         </li>
                     </ul>
+                    <br>
+                    <form action="">
+                      <label for="">Customer Name</label>
+                      <select class="form-control" v-model="customer_id">
+                        <option value="">karim</option>
+                        <option value="">karim</option>
+                      </select>
+                      <label >pay</label>
+                    </form>
 
             
             <div class="card-body">

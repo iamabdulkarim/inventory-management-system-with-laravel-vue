@@ -5062,6 +5062,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = (_created$created$data = {
   created: function created() {
     if (!User.loggedIn()) {
@@ -55409,6 +55418,49 @@ var render = function() {
               _vm._v(" "),
               _vm._m(2),
               _vm._v(" "),
+              _c("br"),
+              _vm._v(" "),
+              _c("form", { attrs: { action: "" } }, [
+                _c("label", { attrs: { for: "" } }, [_vm._v("Customer Name")]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.customer_id,
+                        expression: "customer_id"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.customer_id = $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      }
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "" } }, [_vm._v("karim")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "" } }, [_vm._v("karim")])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("label", [_vm._v("pay")])
+              ]),
+              _vm._v(" "),
               _vm._m(3)
             ])
           ]),
@@ -55778,7 +55830,7 @@ var staticRenderFns = [
         "li",
         {
           staticClass:
-            "list-group d-flex justify-content-between align-item-center"
+            "list-group-item d-flex justify-content-between align-item-center"
         },
         [
           _vm._v("Total Quantity\n                        "),
@@ -55790,7 +55842,7 @@ var staticRenderFns = [
         "li",
         {
           staticClass:
-            "list-group d-flex justify-content-between align-item-center"
+            "list-group-item d-flex justify-content-between align-item-center"
         },
         [
           _vm._v("Sub Total\n                        "),
@@ -55802,7 +55854,7 @@ var staticRenderFns = [
         "li",
         {
           staticClass:
-            "list-group d-flex justify-content-between align-item-center"
+            "list-group-item d-flex justify-content-between align-item-center"
         },
         [_vm._v("Vat:\n                        "), _c("strong", [_vm._v("56")])]
       ),
@@ -55811,7 +55863,7 @@ var staticRenderFns = [
         "li",
         {
           staticClass:
-            "list-group d-flex justify-content-between align-item-center"
+            "list-group-item d-flex justify-content-between align-item-center"
         },
         [
           _vm._v("Total Amount\n                        "),
