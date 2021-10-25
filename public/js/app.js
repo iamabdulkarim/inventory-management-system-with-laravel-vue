@@ -5051,6 +5051,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = (_created$created$data = {
   created: function created() {
     if (!User.loggedIn()) {
@@ -55769,7 +55780,43 @@ var staticRenderFns = [
           staticClass:
             "list-group d-flex justify-content-between align-item-center"
         },
-        [_vm._v("Total Quantity")]
+        [
+          _vm._v("Total Quantity\n                        "),
+          _c("strong", [_vm._v("56")])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "li",
+        {
+          staticClass:
+            "list-group d-flex justify-content-between align-item-center"
+        },
+        [
+          _vm._v("Sub Total\n                        "),
+          _c("strong", [_vm._v("56")])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "li",
+        {
+          staticClass:
+            "list-group d-flex justify-content-between align-item-center"
+        },
+        [_vm._v("Vat:\n                        "), _c("strong", [_vm._v("56")])]
+      ),
+      _vm._v(" "),
+      _c(
+        "li",
+        {
+          staticClass:
+            "list-group d-flex justify-content-between align-item-center"
+        },
+        [
+          _vm._v("Total Amount\n                        "),
+          _c("strong", [_vm._v("56")])
+        ]
       )
     ])
   },

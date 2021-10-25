@@ -57,7 +57,18 @@
                 </div>
                 <div class="card-footer"></div>
                     <ul class="list-group">
-                        <li class="list-group d-flex justify-content-between align-item-center">Total Quantity</li>
+                        <li class="list-group d-flex justify-content-between align-item-center">Total Quantity
+                          <strong>56</strong>
+                        </li>
+                        <li class="list-group d-flex justify-content-between align-item-center">Sub Total
+                          <strong>56</strong>
+                        </li>
+                        <li class="list-group d-flex justify-content-between align-item-center">Vat:
+                          <strong>56</strong>
+                        </li>
+                        <li class="list-group d-flex justify-content-between align-item-center">Total Amount
+                          <strong>56</strong>
+                        </li>
                     </ul>
 
             
