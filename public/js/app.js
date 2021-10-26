@@ -5104,7 +5104,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     searchTerm: "",
     getsearchTerm: "",
     customers: "",
-    errors: ""
+    errors: "",
+    carts: []
   };
 }), _defineProperty(_created$created$data, "computed", {
   filtersearch: function filtersearch() {
@@ -5127,36 +5128,44 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       Notification.cart_success();
     })["catch"]();
   },
-  allProduct: function allProduct() {
+  cartProduct: function cartProduct() {
     var _this3 = this;
 
-    axios.get("/api/product/").then(function (_ref) {
+    axios.get("/api/cart/product/").then(function (_ref) {
       var data = _ref.data;
       return _this3.products = data;
     })["catch"]();
   },
-  allCategory: function allCategory() {
+  allProduct: function allProduct() {
     var _this4 = this;
 
-    axios.get("/api/category/").then(function (_ref2) {
+    axios.get("/api/product/").then(function (_ref2) {
       var data = _ref2.data;
-      return _this4.categories = data;
+      return _this4.products = data;
+    })["catch"]();
+  },
+  allCategory: function allCategory() {
+    var _this5 = this;
+
+    axios.get("/api/category/").then(function (_ref3) {
+      var data = _ref3.data;
+      return _this5.categories = data;
     })["catch"]();
   },
   allCustomer: function allCustomer() {
-    var _this5 = this;
+    var _this6 = this;
 
-    axios.get("/api/customer/").then(function (_ref3) {
-      var data = _ref3.data;
-      return _this5.customers = data;
+    axios.get("/api/customer/").then(function (_ref4) {
+      var data = _ref4.data;
+      return _this6.customers = data;
     })["catch"](console.log('error'));
   },
   subProduct: function subProduct(id) {
-    var _this6 = this;
+    var _this7 = this;
 
-    axios.get("/api/getting/product/" + id).then(function (_ref4) {
-      var data = _ref4.data;
-      return _this6.getproducts = data;
+    axios.get("/api/getting/product/" + id).then(function (_ref5) {
+      var data = _ref5.data;
+      return _this7.getproducts = data;
     })["catch"]();
   }
 }), _created$created$data);

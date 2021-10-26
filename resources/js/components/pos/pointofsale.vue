@@ -278,7 +278,8 @@ export default {
       searchTerm: "",
       getsearchTerm: "",
       customers: "",
-      errors:""
+      errors:"",
+      carts:[]
     };
   },
   computed: {
@@ -302,6 +303,12 @@ export default {
         .then(() => {
            Notification.cart_success();
         })
+        .catch();
+      },
+      cartProduct(){
+        axios
+        .get("/api/cart/product/")
+        .then(({ data }) => (this.products = data))
         .catch();
       },
 

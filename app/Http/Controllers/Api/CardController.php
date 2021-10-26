@@ -19,6 +19,6 @@ class CardController extends Controller
         $data['product_price'] = $product->selling_price;
         $data['sub_total'] = $product->selling_price;
 
-        return response()->json($data);
+        DB::table('pos')->insert($data);
     }
 }
