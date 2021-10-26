@@ -5146,6 +5146,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return _this4.carts = data;
     })["catch"]();
   },
+  removeItem: function removeItem(id) {
+    axios.get("/api/remove/cart/" + id).then(function () {
+      Reload.$emit('AfterAdd');
+      Notification.cart_delete();
+    })["catch"]();
+  },
   allProduct: function allProduct() {
     var _this5 = this;
 
@@ -55503,7 +55509,25 @@ var render = function() {
                             _vm._v(" "),
                             _c("td", [_vm._v(_vm._s(cart.sub_total))]),
                             _vm._v(" "),
-                            _c("td", [_vm._v("X")])
+                            _c("td", [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "btn btn-sm btn-primary",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.removeItem(cart.id)
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("font", { attrs: { color: "#fff" } }, [
+                                    _vm._v("X")
+                                  ])
+                                ],
+                                1
+                              )
+                            ])
                           ])
                         }),
                         0
@@ -75519,6 +75543,16 @@ var Notification = /*#__PURE__*/function () {
         type: 'success',
         layout: 'topRight',
         text: 'Success Added',
+        timeout: 1000
+      }).show();
+    }
+  }, {
+    key: "cart_delete",
+    value: function cart_delete() {
+      new Noty({
+        type: 'success',
+        layout: 'topRight',
+        text: 'Successfully Deleted',
         timeout: 1000
       }).show();
     }

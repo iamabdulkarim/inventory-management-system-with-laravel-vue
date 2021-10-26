@@ -27,4 +27,10 @@ class CardController extends Controller
         $cart = DB::table('pos')->get();
         return response()->json($cart);
     }
+
+    public function RemoveCart($id)
+    {
+        DB::table('pos')->where('id', $id)->delete();
+        return response('Done');
+    }
 }

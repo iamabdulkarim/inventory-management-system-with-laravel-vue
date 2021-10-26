@@ -52,7 +52,7 @@
                         </td>
                         <td>{{cart.product_price}}</td>
                         <td>{{cart.sub_total}}</td>
-                        <td>X</td>
+                        <td><a @click="removeItem(cart.id)"class="btn btn-sm btn-primary"><font color="#fff">X</font></a></td>
                       </tr>
                     
                     </tbody>
@@ -317,6 +317,15 @@ export default {
         axios
         .get("/api/cart/product/")
         .then(({ data }) => (this.carts = data))
+        .catch();
+      },
+      removeItem(id){
+        axios
+        .get("/api/remove/cart/" + id)
+        .then(() => {
+          Reload.$emit('AfterAdd');
+           Notification.cart_delete();
+        })
         .catch();
       },
 
