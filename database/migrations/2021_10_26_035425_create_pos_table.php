@@ -15,7 +15,7 @@ class CreatePosTable extends Migration
     {
         Schema::create('pos', function (Blueprint $table) {
             $table->id('id');
-            $table->id('pro_id');
+            $table->integer('pro_id');
             $table->string('pro_name')->nullable();
             $table->string('pro_quantity');
             $table->string('product_price')->nullable();
