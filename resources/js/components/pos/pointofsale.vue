@@ -48,7 +48,8 @@
                         <td>{{cart.pro_name}}</td>
                         <td><input type="text" readonly style="width:15px;" :value="cart.pro_quantity">
                             <button @click.prevent="increment(cart.id)" class="btn btn-sm btn-success" >+</button>
-                            <button @click.prevent="decrement(cart.id)" class="btn btn-sm btn-danger" >-</button>
+                            <button @click.prevent="decrement(cart.id)"  class="btn btn-sm btn-danger" v-if="cart.pro_quantity >=2">-</button>
+                            <button class="btn btn-sm btn-danger"  v-else="" disabled="">-</button>
                         </td>
                         <td>{{cart.product_price}}</td>
                         <td>{{cart.sub_total}}</td>
@@ -222,7 +223,7 @@
                     v-for="getproduct in getfiltersearch"
                     :key="getproduct.id"
                   >
-                    <a href="#">
+                    <button class="btn btn-sm" @click.prevent="AddToCard(getproduct.id)">
                       <div
                         class="card"
                         style="width: 8.5rem; margin-bottom: 10px"
@@ -246,7 +247,7 @@
                           >
                         </div>
                       </div>
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
