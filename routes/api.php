@@ -38,3 +38,6 @@ Route::Post('/salary/update/{id}', 'Api\SalaryController@SalaryUpdate');
 // stock
 Route::Post('/stock/update/{id}', 'Api\ProductController@StockUpdate');
 Route::get('/getting/product/{id}', 'Api\PosController@GetProduct');
+
+//addtocard
+Route::get('/addToCart/{id}', 'Api\CardController@AddToCart');
