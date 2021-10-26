@@ -5084,6 +5084,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = (_created$created$data = {
   created: function created() {
     if (!User.loggedIn()) {
@@ -5093,9 +5096,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   }
 }, _defineProperty(_created$created$data, "created", function created() {
+  var _this = this;
+
   this.allProduct();
   this.allCategory();
   this.allCustomer();
+  this.cartProduct();
+  Reload.$on('AfterAdd', function () {
+    _this.cartProduct();
+  });
 }), _defineProperty(_created$created$data, "data", function data() {
   return {
     products: [],
@@ -5109,63 +5118,64 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   };
 }), _defineProperty(_created$created$data, "computed", {
   filtersearch: function filtersearch() {
-    var _this = this;
+    var _this2 = this;
 
     return this.products.filter(function (product) {
-      return product.product_name.match(_this.searchTerm);
+      return product.product_name.match(_this2.searchTerm);
     });
   },
   getfiltersearch: function getfiltersearch() {
-    var _this2 = this;
+    var _this3 = this;
 
     return this.getproducts.filter(function (getproduct) {
-      return getproduct.product_name.match(_this2.getsearchTerm);
+      return getproduct.product_name.match(_this3.getsearchTerm);
     });
   }
 }), _defineProperty(_created$created$data, "methods", {
   AddToCard: function AddToCard(id) {
     axios.get("/api/addToCart/" + id).then(function () {
+      Reload.$emit('AfterAdd');
       Notification.cart_success();
     })["catch"]();
   },
   cartProduct: function cartProduct() {
-    var _this3 = this;
+    var _this4 = this;
 
     axios.get("/api/cart/product/").then(function (_ref) {
       var data = _ref.data;
-      return _this3.products = data;
+      return _this4.carts = data;
     })["catch"]();
   },
   allProduct: function allProduct() {
-    var _this4 = this;
+    var _this5 = this;
 
     axios.get("/api/product/").then(function (_ref2) {
       var data = _ref2.data;
-      return _this4.products = data;
+      return _this5.products = data;
     })["catch"]();
   },
   allCategory: function allCategory() {
-    var _this5 = this;
+    var _this6 = this;
 
     axios.get("/api/category/").then(function (_ref3) {
       var data = _ref3.data;
-      return _this5.categories = data;
+      return _this6.categories = data;
     })["catch"]();
   },
   allCustomer: function allCustomer() {
-    var _this6 = this;
+    var _this7 = this;
 
     axios.get("/api/customer/").then(function (_ref4) {
       var data = _ref4.data;
-      return _this6.customers = data;
+      return _this7.customers = data;
     })["catch"](console.log('error'));
   },
   subProduct: function subProduct(id) {
-    var _this7 = this;
+    var _this8 = this;
 
     axios.get("/api/getting/product/" + id).then(function (_ref5) {
       var data = _ref5.data;
-      return _this7.getproducts = data;
+      return _this8.getproducts = data;
     })["catch"]();
   }
 }), _created$created$data);
@@ -55450,7 +55460,58 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _vm._m(1),
+              _c(
+                "div",
+                {
+                  staticClass: "table-responsive",
+                  staticStyle: { "font-size": "12px" }
+                },
+                [
+                  _c(
+                    "table",
+                    { staticClass: "table align-items-center table-flush" },
+                    [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        _vm._l(_vm.carts, function(cart) {
+                          return _c("tr", { key: cart.id }, [
+                            _c("td", [_vm._v(_vm._s(cart.pro_name))]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _c("input", {
+                                staticStyle: { width: "15px" },
+                                attrs: { type: "text", readonly: "" },
+                                domProps: { value: cart.pro_quantity }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                { staticClass: "btn btn-sm btn-success" },
+                                [_vm._v("+")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                { staticClass: "btn btn-sm btn-danger" },
+                                [_vm._v("-")]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [_vm._v(_vm._s(cart.product_price))]),
+                            _vm._v(" "),
+                            _c("td", [_vm._v(_vm._s(cart.sub_total))]),
+                            _vm._v(" "),
+                            _c("td", [_vm._v("X")])
+                          ])
+                        }),
+                        0
+                      )
+                    ]
+                  )
+                ]
+              ),
               _vm._v(" "),
               _c("div", { staticClass: "card-footer" }, [
                 _vm._m(2),
@@ -55952,41 +56013,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "table-responsive", staticStyle: { "font-size": "12px" } },
-      [
-        _c("table", { staticClass: "table align-items-center table-flush" }, [
-          _c("thead", { staticClass: "thead-light" }, [
-            _c("tr", [
-              _c("th", [_vm._v("Name")]),
-              _vm._v(" "),
-              _c("th", [_vm._v("Quantity")]),
-              _vm._v(" "),
-              _c("th", [_vm._v("Unit")]),
-              _vm._v(" "),
-              _c("th", [_vm._v("Total")]),
-              _vm._v(" "),
-              _c("th", [_vm._v("Action")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("tbody", [
-            _c("tr", [
-              _c("td", [_vm._v("Name")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("Quantity")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("unit")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("total")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("X")])
-            ])
-          ])
-        ])
-      ]
-    )
+    return _c("thead", { staticClass: "thead-light" }, [
+      _c("tr", [
+        _c("th", [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Quantity")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Unit")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Total")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Action")])
+      ])
+    ])
   },
   function() {
     var _vm = this

@@ -21,4 +21,10 @@ class CardController extends Controller
 
         DB::table('pos')->insert($data);
     }
+
+    public function CartProduct()
+    {
+        $cart = DB::table('pos')->get();
+        return response()->json($cart);
+    }
 }

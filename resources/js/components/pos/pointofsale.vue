@@ -44,11 +44,14 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>Name</td>
-                        <td>Quantity</td>
-                        <td>unit</td>
-                        <td>total</td>
+                      <tr v-for="cart in carts" :key="cart.id">
+                        <td>{{cart.pro_name}}</td>
+                        <td><input type="text" readonly style="width:15px;" :value="cart.pro_quantity">
+                            <button class="btn btn-sm btn-success" >+</button>
+                            <button class="btn btn-sm btn-danger" >-</button>
+                        </td>
+                        <td>{{cart.product_price}}</td>
+                        <td>{{cart.sub_total}}</td>
                         <td>X</td>
                       </tr>
                     
@@ -269,6 +272,10 @@ export default {
     this.allProduct();
     this.allCategory();
     this.allCustomer();
+    this.cartProduct();
+    Reload.$on('AfterAdd',()=>{
+      this.cartProduct();
+    })
   },
   data() {
     return {
@@ -301,6 +308,7 @@ export default {
         axios
         .get("/api/addToCart/" + id)
         .then(() => {
+          Reload.$emit('AfterAdd');
            Notification.cart_success();
         })
         .catch();
@@ -308,7 +316,7 @@ export default {
       cartProduct(){
         axios
         .get("/api/cart/product/")
-        .then(({ data }) => (this.products = data))
+        .then(({ data }) => (this.carts = data))
         .catch();
       },
 
