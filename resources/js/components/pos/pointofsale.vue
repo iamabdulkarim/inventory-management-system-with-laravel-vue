@@ -31,8 +31,8 @@
               <a class="btn btn-sm btn-info" href=""><font color="#fff"></font>Add customer</a>
             </div>
             
-
-                <div class="table-responsive">
+             
+                <div class="table-responsive" style="font-size:12px">
                   <table class="table align-items-center table-flush">
                     <thead class="thead-light">
                       <tr>
@@ -51,22 +51,23 @@
                         <td>total</td>
                         <td>X</td>
                       </tr>
-                      
+                    
                     </tbody>
                   </table>
                 </div>
-                <div class="card-footer"></div>
+                  
+                <div class="card-footer">
                     <ul class="list-group">
-                        <li class="list-group-item d-flex justify-content-between align-item-center">Total Quantity
+                        <li class="list-group-item d-flex justify-content-between align-items-center">Total Quantity
                           <strong>56</strong>
                         </li>
-                        <li class="list-group-item d-flex justify-content-between align-item-center">Sub Total
+                        <li class="list-group-item d-flex justify-content-between align-items-center">Sub Total
                           <strong>56</strong>
                         </li>
-                        <li class="list-group-item d-flex justify-content-between align-item-center">Vat:
+                        <li class="list-group-item d-flex justify-content-between align-items-center">Vat:
                           <strong>56</strong>
                         </li>
-                        <li class="list-group-item d-flex justify-content-between align-item-center">Total Amount
+                        <li class="list-group-item d-flex justify-content-between align-items-center">Total Amount
                           <strong>56</strong>
                         </li>
                     </ul>
@@ -78,9 +79,21 @@
                         <option value="">karim</option>
                       </select>
                       <label >pay</label>
-                    </form>
+                      <input type="text" class="form-control" required v-model="pay">
+                      <label >due</label>
+                      <input type="text" class="form-control" required v-model="due">
+                      <label for="">Payment</label>
+                      <select class="form-control" v-model="customer_id">
+                        <option value="HandCash">Hand Cash</option>
+                        <option value="Cheaque">Cheaque</option>
+                        <option value="GiftCard">Gift card</option>
+                      </select>
 
-            
+                      <br>
+                      <button type="submit" class="btn btn-success">Submit</button>
+                    </form>
+     
+                 </div>
             <div class="card-body">
               <div class="chart-area">
 
