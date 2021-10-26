@@ -171,7 +171,7 @@
                       v-for="product in filtersearch"
                       :key="product.id"
                     >
-                      <a href="#">
+                      <button class="btn btn-sm" @click.prevent="AddToCard(product.id)">
                         <div
                           class="card"
                           style="width: 8.5rem; margin-bottom: 10px"
@@ -195,7 +195,7 @@
                             >
                           </div>
                         </div>
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -295,6 +295,17 @@ export default {
   },
 
   methods: {
+
+     AddToCard(id){
+        axios
+        .get("/api/addToCart/" + id)
+        .then(() => {
+           Notification.cart_success();
+        })
+        .catch();
+      },
+
+
     allProduct() {
       axios
         .get("/api/product/")
