@@ -5095,13 +5095,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 }, _defineProperty(_created$created$data, "created", function created() {
   this.allProduct();
   this.allCategory();
+  this.allCustomer();
 }), _defineProperty(_created$created$data, "data", function data() {
   return {
     products: [],
     categories: "",
     getproducts: [],
     searchTerm: "",
-    getsearchTerm: ""
+    getsearchTerm: "",
+    customers: "",
+    errors: ""
   };
 }), _defineProperty(_created$created$data, "computed", {
   filtersearch: function filtersearch() {
@@ -5135,12 +5138,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return _this4.categories = data;
     })["catch"]();
   },
-  subProduct: function subProduct(id) {
+  allCustomer: function allCustomer() {
     var _this5 = this;
 
-    axios.get("/api/getting/product/" + id).then(function (_ref3) {
+    axios.get("/api/customer/").then(function (_ref3) {
       var data = _ref3.data;
-      return _this5.getproducts = data;
+      return _this5.customers = data;
+    })["catch"](console.log('error'));
+  },
+  subProduct: function subProduct(id) {
+    var _this6 = this;
+
+    axios.get("/api/getting/product/" + id).then(function (_ref4) {
+      var data = _ref4.data;
+      return _this6.getproducts = data;
     })["catch"]();
   }
 }), _created$created$data);
@@ -55465,11 +55476,14 @@ var render = function() {
                         }
                       }
                     },
-                    [
-                      _c("option", { attrs: { value: "" } }, [_vm._v("karim")]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "" } }, [_vm._v("karim")])
-                    ]
+                    _vm._l(_vm.customers, function(customer) {
+                      return _c(
+                        "option",
+                        { key: customer.id, attrs: { value: "" } },
+                        [_vm._v(_vm._s(customer.name))]
+                      )
+                    }),
+                    0
                   ),
                   _vm._v(" "),
                   _c("label", [_vm._v("pay")]),
