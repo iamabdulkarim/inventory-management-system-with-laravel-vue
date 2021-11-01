@@ -1,6 +1,8 @@
 <?php
 
 
+
+
 Route::group([
 
     'middleware' => 'api',
@@ -45,3 +47,8 @@ Route::get('/cart/product', 'Api\CardController@CartProduct');
 Route::get('/remove/cart/{id}', 'Api\CardController@RemoveCart');
 Route::get('/increment/{id}', 'Api\CardController@increment');
 Route::get('/decrement/{id}', 'Api\CardController@decrement');
+
+// Vat Extra Route
+// 
+// Route::apiResource('/vats', 'Api\VatController');
+Route::Get('/vats', 'Api\CardController@Vats');
