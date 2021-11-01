@@ -66,13 +66,13 @@
                           <strong>{{qty}}</strong>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">Sub Total
-                          <strong>56</strong>
+                          <strong>{{subtotal}}$</strong>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">Vat:
                           <strong>{{vats.vat}} %</strong>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">Total Amount
-                          <strong>56</strong>
+                          <strong>{{subtotal}}</strong>
                         </li>
                     </ul>
                     <br>
@@ -308,6 +308,14 @@ export default {
       let sum = 0;
       for (let i = 0; i < this.carts.length; i++) {
         sum += (parseFloat( this.carts[i].pro_quantity));
+        
+      }
+      return sum;
+    },
+    subtotal(){
+      let sum = 0;
+      for (let i = 0; i < this.carts.length; i++) {
+        sum += (parseFloat( this.carts[i].pro_quantity )* parseFloat( this.carts[i].product_price));
         
       }
       return sum;
