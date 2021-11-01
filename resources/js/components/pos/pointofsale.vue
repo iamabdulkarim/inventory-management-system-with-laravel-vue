@@ -66,28 +66,36 @@
                           <strong>{{qty}}</strong>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">Sub Total
-                          <strong>{{subtotal}}$</strong>
+                          <strong>{{subtotal}} $</strong>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">Vat:
                           <strong>{{vats.vat}} %</strong>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">Total Amount
-                          <strong>{{subtotal}}</strong>
+                          <strong>{{subtotal * vats.vat/100 + subtotal}}</strong>
                         </li>
                     </ul>
                     <br>
-                    <form action="">
+
+
+
+
+
+
+                    <form @submit.prevent="orderdone">
                       <label for="">Customer Name</label>
                       <select class="form-control" v-model="customer_id">
-                        <option v-for="customer in customers" :key="customer.id" value="">{{customer.name}}</option>
+                        <option :value="customer.id" v-for="customer in customers" :key="customer.id" value="">{{customer.name}}</option>
                       
                       </select>
-                      <label >pay</label>
+                      <label >Pay</label>
                       <input type="text" class="form-control" required v-model="pay">
-                      <label >due</label>
+
+                      <label >Due</label>
                       <input type="text" class="form-control" required v-model="due">
-                      <label for="">Payment</label>
-                      <select class="form-control" v-model="customer_id">
+
+                      <label for="">Pay  By</label>
+                      <select class="form-control" v-model="payby">
                         <option value="HandCash">Hand Cash</option>
                         <option value="Cheaque">Cheaque</option>
                         <option value="GiftCard">Gift card</option>
@@ -281,6 +289,10 @@ export default {
   },
   data() {
     return {
+      customer_id:'',
+      pay:'',
+      due:'',
+      payby:'',
       products: [],
       categories: "",
       getproducts: [],
@@ -375,6 +387,17 @@ export default {
         .catch();
       },
 
+      orderdone(){
+        let total = this.subtotal * this.vats.vat / 100 + this.subtotal;
+        let data = { qty:this.qty, subtotal:this.subtotal, cutomer_id:this.customer_id, payby:this.payby,pay:this.due,vat:this.vats.vat,total:total}
+
+        axios.post("/api/orderdone", data)
+                .then(() => { 
+                    Notification.success();
+                    // this.$router.push({name:'home'})
+                })
+                
+      }, 
 
     allProduct() {
       axios
