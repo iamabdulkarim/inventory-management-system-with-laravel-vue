@@ -61,4 +61,10 @@ class CardController extends Controller
         DB::table('pos')->where('id', $id)->update(['sub_total' => $subtotal]);
         return response('DONE');
     }
+
+    public function Vats()
+    {
+        $vat = DB::table('vats')->first();
+        return response()->json($vat);
+    }
 }
