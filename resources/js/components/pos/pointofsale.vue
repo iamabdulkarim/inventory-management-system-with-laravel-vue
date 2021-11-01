@@ -63,13 +63,13 @@
                 <div class="card-footer">
                     <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between align-items-center">Total Quantity
-                          <strong>56</strong>
+                          <strong>{{qty}}</strong>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">Sub Total
                           <strong>56</strong>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">Vat:
-                          <strong>56</strong>
+                          <strong>{{vats.vat}} %</strong>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">Total Amount
                           <strong>56</strong>
@@ -274,6 +274,7 @@ export default {
     this.allCategory();
     this.allCustomer();
     this.cartProduct();
+    this.vat();
     Reload.$on('AfterAdd',()=>{
       this.cartProduct();
     })
@@ -287,7 +288,8 @@ export default {
       getsearchTerm: "",
       customers: "",
       errors:"",
-      carts:[]
+      carts:[],
+      vats:''
     };
   },
   computed: {
@@ -300,6 +302,15 @@ export default {
       return this.getproducts.filter((getproduct) => {
         return getproduct.product_name.match(this.getsearchTerm);
       });
+    },
+
+    qty(){
+      let sum = 0;
+      for (let i = 0; i < this.carts.length; i++) {
+        sum += (parseFloat( this.carts[i].pro_quantity));
+        
+      }
+      return sum;
     },
   },
 
@@ -346,6 +357,13 @@ export default {
           Reload.$emit('AfterAdd');
            Notification.success();
         })
+        .catch();
+      },
+
+      vat(){
+        axios
+        .get("/api/vats/")
+        .then(({ data }) => (this.vats = data))
         .catch();
       },
 
