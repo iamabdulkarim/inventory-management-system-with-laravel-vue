@@ -85,9 +85,9 @@
                     <form @submit.prevent="orderdone">
                       <label for="">Customer Name</label>
                       <select class="form-control" v-model="customer_id">
-                        <option :value="customer.id" v-for="customer in customers" :key="customer.id" value="">{{customer.name}}</option>
-                      
-                      </select>
+         <option :value="customer.id" v-for="customer in customers">{{customer.name }} </option>
+                 
+           </select>
                       <label >Pay</label>
                       <input type="text" class="form-control" required v-model="pay">
 
@@ -389,12 +389,12 @@ export default {
 
       orderdone(){
         let total = this.subtotal * this.vats.vat / 100 + this.subtotal;
-        let data = { qty:this.qty, subtotal:this.subtotal, cutomer_id:this.customer_id, payby:this.payby,pay:this.due,vat:this.vats.vat,total:total}
+        let data = { qty:this.qty, subtotal:this.subtotal, customer_id:this.customer_id, payby:this.payby,pay:this.due,vat:this.vats.vat,total:total}
 
         axios.post("/api/orderdone", data)
                 .then(() => { 
                     Notification.success();
-                    // this.$router.push({name:'home'})
+                    this.$router.push({name:'home'})
                 })
                 
       }, 
