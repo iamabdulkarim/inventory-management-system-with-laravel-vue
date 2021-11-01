@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
 
+
 class PosController extends Controller
 {
     public function GetProduct($id)
@@ -14,5 +15,10 @@ class PosController extends Controller
             ->where('category_id', $id)
             ->get();
         return response()->json($product);
+    }
+
+    public function OrderDone(Request $request)
+    {
+        return response('Everything fine');
     }
 }
