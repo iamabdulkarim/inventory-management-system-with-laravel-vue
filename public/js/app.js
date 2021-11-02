@@ -77627,6 +77627,38 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/order/order.vue":
+/*!*************************************************!*\
+  !*** ./resources/js/components/order/order.vue ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/components/order/order.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/pos/pointofsale.vue":
 /*!*****************************************************!*\
   !*** ./resources/js/components/pos/pointofsale.vue ***!
@@ -78799,7 +78831,10 @@ var customer = __webpack_require__(/*! ./components/customer/index.vue */ "./res
 var editcustomer = __webpack_require__(/*! ./components/customer/edit.vue */ "./resources/js/components/customer/edit.vue")["default"]; //pos component
 
 
-var pos = __webpack_require__(/*! ./components/pos/pointofsale.vue */ "./resources/js/components/pos/pointofsale.vue")["default"];
+var pos = __webpack_require__(/*! ./components/pos/pointofsale.vue */ "./resources/js/components/pos/pointofsale.vue")["default"]; //order component
+
+
+var order = __webpack_require__(/*! ./components/order/order.vue */ "./resources/js/components/order/order.vue")["default"];
 
 var routes = [{
   path: '/',
@@ -78934,6 +78969,11 @@ var routes = [{
   path: '/pos',
   component: pos,
   name: 'pos'
+}, //order
+{
+  path: '/order',
+  component: order,
+  name: 'order'
 }];
 
 /***/ }),
