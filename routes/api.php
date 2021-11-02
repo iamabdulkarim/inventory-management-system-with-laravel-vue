@@ -53,3 +53,6 @@ Route::get('/decrement/{id}', 'Api\CardController@decrement');
 // Route::apiResource('/vats', 'Api\VatController');
 Route::Get('/vats', 'Api\CardController@Vats');
 Route::Post('/orderdone', 'Api\PosController@OrderDone');
+
+//order Route
+Route::get('/orders', 'Api\OrderController@Order');
