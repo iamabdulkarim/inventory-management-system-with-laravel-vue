@@ -1,10 +1,6 @@
 <template>
     <div>
-        <div class="row">
-            <router-link to="/store-expense" class="btn btn-primary"
-                >Add Expense
-            </router-link>
-        </div>
+        
         <br />
         <input
             type="text"
@@ -24,45 +20,44 @@
                         class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
                     >
                         <h6 class="m-0 font-weight-bold text-primary">
-                            Expense List
+                            Today Orders
                         </h6>
                     </div>
                     <div class="table-responsive">
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                                 <tr>
-                                    <th>Details</th>
-                                    <th>Amount</th>
-                                    <th>Date</th>
+                                    <th>Name</th>
+                                    <th>Total Amount</th>
+                                    <th>Pay</th>
+                                    <th>Due</th>
+                                    <th>Payby</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr
-                                    v-for="expense in filtersearch"
-                                    :key="expense.id"
+                                    v-for="order in filtersearch"
+                                    :key="order.id"
                                 >
-                                    <td>{{ expense.details }}</td>
-                                    <td>{{ expense.amount }}</td>
-                                    <td>{{ expense.expense_date }}</td>
+                                    <td>{{ order.name }}</td>
+                                    <td>{{ order.total }}</td>
+                                    <td>{{ order.pay}}</td>
+                                    <td>{{ order.due}}</td>
+                                    <td>{{ order.payby}}</td>
+                                    
 
                                     <td>
                                         <router-link
                                             :to="{
-                                                name: 'edit-expense',
+                                                name: 'view-order',
                                                 params: { id: expense.id }
                                             }"
                                             class="btn btn-sm btn-primary"
-                                            >Edit</router-link
+                                            >View</router-link
                                         >
 
-                                        <a
-                                            @click="deleteExpense(expense.id)"
-                                            class="btn btn-sm btn-danger"
-                                            ><font color="#ffffff"
-                                                >Delete</font
-                                            ></a
-                                        >
+                                    
                                     </td>
                                 </tr>
                             </tbody>
@@ -85,29 +80,29 @@ export default {
     },
     data() {
         return {
-            expenses: [],
+            orders: [],
             searchTerm: ""
         }
     },
     computed: {
         filtersearch() {
-            return this.expenses.filter(expense => {
-                return expense.expense_date.match(this.searchTerm);
+            return this.orders.filter(order => {
+                return order.name.match(this.searchTerm);
             });
         }
     },
 
     methods: {
-        allExpense() {
+        allOrder() {
             axios
-                .get("/api/expense/")
-                .then(({ data }) => (this.expenses = data))
+                .get("/api/orders/")
+                .then(({ data }) => (this.orders = data))
                 .catch();
         },
         
     },
     created() {
-        this.allExpense();
+        this.allOrder();
     }
 };
 </script>
