@@ -5257,11 +5257,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
   created: function created() {
     if (!User.loggedIn()) {
@@ -5272,7 +5267,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   data: function data() {
     return {
-      expenses: [],
+      orders: [],
       searchTerm: ""
     };
   },
@@ -5280,23 +5275,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     filtersearch: function filtersearch() {
       var _this = this;
 
-      return this.expenses.filter(function (expense) {
-        return expense.expense_date.match(_this.searchTerm);
+      return this.orders.filter(function (order) {
+        return order.name.match(_this.searchTerm);
       });
     }
   },
   methods: {
-    allExpense: function allExpense() {
+    allOrder: function allOrder() {
       var _this2 = this;
 
-      axios.get("/api/expense/").then(function (_ref) {
+      axios.get("/api/orders/").then(function (_ref) {
         var data = _ref.data;
-        return _this2.expenses = data;
+        return _this2.orders = data;
       })["catch"]();
     }
   }
 }, "created", function created() {
-  this.allExpense();
+  this.allOrder();
 }));
 
 /***/ }),
@@ -56134,19 +56129,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "div",
-      { staticClass: "row" },
-      [
-        _c(
-          "router-link",
-          { staticClass: "btn btn-primary", attrs: { to: "/store-expense" } },
-          [_vm._v("Add Expense\n        ")]
-        )
-      ],
-      1
-    ),
-    _vm._v(" "),
     _c("br"),
     _vm._v(" "),
     _c("input", {
@@ -56188,13 +56170,17 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "tbody",
-                  _vm._l(_vm.filtersearch, function(expense) {
-                    return _c("tr", { key: expense.id }, [
-                      _c("td", [_vm._v(_vm._s(expense.details))]),
+                  _vm._l(_vm.filtersearch, function(order) {
+                    return _c("tr", { key: order.id }, [
+                      _c("td", [_vm._v(_vm._s(order.name))]),
                       _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(expense.amount))]),
+                      _c("td", [_vm._v(_vm._s(order.total))]),
                       _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(expense.expense_date))]),
+                      _c("td", [_vm._v(_vm._s(order.pay))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(order.due))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(order.payby))]),
                       _vm._v(" "),
                       _c(
                         "td",
@@ -56205,30 +56191,12 @@ var render = function() {
                               staticClass: "btn btn-sm btn-primary",
                               attrs: {
                                 to: {
-                                  name: "edit-expense",
-                                  params: { id: expense.id }
+                                  name: "view-order",
+                                  params: { id: _vm.expense.id }
                                 }
                               }
                             },
-                            [_vm._v("Edit")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass: "btn btn-sm btn-danger",
-                              on: {
-                                click: function($event) {
-                                  return _vm.deleteExpense(expense.id)
-                                }
-                              }
-                            },
-                            [
-                              _c("font", { attrs: { color: "#ffffff" } }, [
-                                _vm._v("Delete")
-                              ])
-                            ],
-                            1
+                            [_vm._v("View")]
                           )
                         ],
                         1
@@ -56260,7 +56228,7 @@ var staticRenderFns = [
       },
       [
         _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
-          _vm._v("\n                        Expense List\n                    ")
+          _vm._v("\n                        Today Orders\n                    ")
         ])
       ]
     )
@@ -56271,11 +56239,15 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", { staticClass: "thead-light" }, [
       _c("tr", [
-        _c("th", [_vm._v("Details")]),
+        _c("th", [_vm._v("Name")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Amount")]),
+        _c("th", [_vm._v("Total Amount")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Date")]),
+        _c("th", [_vm._v("Pay")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Due")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Payby")]),
         _vm._v(" "),
         _c("th", [_vm._v("Actions")])
       ])
