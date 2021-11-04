@@ -1,6 +1,5 @@
 <template>
     <div>
-        
         <br />
         <input
             type="text"
@@ -32,6 +31,7 @@
                                     <th>Pay</th>
                                     <th>Due</th>
                                     <th>Payby</th>
+
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -42,22 +42,19 @@
                                 >
                                     <td>{{ order.name }}</td>
                                     <td>{{ order.total }}</td>
-                                    <td>{{ order.pay}}</td>
-                                    <td>{{ order.due}}</td>
-                                    <td>{{ order.payby}}</td>
-                                    
+                                    <td>{{ order.pay }}</td>
+                                    <td>{{ order.due }}</td>
+                                    <td>{{ order.payby }}</td>
 
                                     <td>
                                         <router-link
                                             :to="{
                                                 name: 'view-order',
-                                                params: { id: expense.id }
+                                                params: { id: order.id }
                                             }"
                                             class="btn btn-sm btn-primary"
                                             >View</router-link
                                         >
-
-                                    
                                     </td>
                                 </tr>
                             </tbody>
@@ -78,11 +75,12 @@ export default {
             this.$router.push({ name: "/" });
         }
     },
+
     data() {
         return {
             orders: [],
             searchTerm: ""
-        }
+        };
     },
     computed: {
         filtersearch() {
@@ -98,9 +96,9 @@ export default {
                 .get("/api/orders/")
                 .then(({ data }) => (this.orders = data))
                 .catch();
-        },
-        
+        }
     },
+
     created() {
         this.allOrder();
     }

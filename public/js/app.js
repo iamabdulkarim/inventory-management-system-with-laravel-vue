@@ -5254,9 +5254,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
   created: function created() {
     if (!User.loggedIn()) {
@@ -5581,6 +5578,97 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = (_created$created$data = {
   created: function created() {
     if (!User.loggedIn()) {
@@ -5597,15 +5685,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   this.allCustomer();
   this.cartProduct();
   this.vat();
-  Reload.$on('AfterAdd', function () {
+  Reload.$on("AfterAdd", function () {
     _this.cartProduct();
   });
 }), _defineProperty(_created$created$data, "data", function data() {
   return {
-    customer_id: '',
-    pay: '',
-    due: '',
-    payby: '',
+    customer_id: "",
+    pay: "",
+    due: "",
+    payby: "",
     products: [],
     categories: "",
     getproducts: [],
@@ -5614,7 +5702,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     customers: "",
     errors: "",
     carts: [],
-    vats: ''
+    vats: ""
   };
 }), _defineProperty(_created$created$data, "computed", {
   filtersearch: function filtersearch() {
@@ -5652,7 +5740,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 }), _defineProperty(_created$created$data, "methods", {
   AddToCard: function AddToCard(id) {
     axios.get("/api/addToCart/" + id).then(function () {
-      Reload.$emit('AfterAdd');
+      Reload.$emit("AfterAdd");
       Notification.cart_success();
     })["catch"]();
   },
@@ -5666,19 +5754,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   removeItem: function removeItem(id) {
     axios.get("/api/remove/cart/" + id).then(function () {
-      Reload.$emit('AfterAdd');
+      Reload.$emit("AfterAdd");
       Notification.cart_delete();
     })["catch"]();
   },
   increment: function increment(id) {
     axios.get("/api/increment/" + id).then(function () {
-      Reload.$emit('AfterAdd');
+      Reload.$emit("AfterAdd");
       Notification.success();
     })["catch"]();
   },
   decrement: function decrement(id) {
     axios.get("/api/decrement/" + id).then(function () {
-      Reload.$emit('AfterAdd');
+      Reload.$emit("AfterAdd");
       Notification.success();
     })["catch"]();
   },
@@ -5699,7 +5787,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       subtotal: this.subtotal,
       customer_id: this.customer_id,
       payby: this.payby,
-      pay: this.due,
+      pay: this.pay,
+      due: this.due,
       vat: this.vats.vat,
       total: total
     };
@@ -5707,7 +5796,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       Notification.success();
 
       _this6.$router.push({
-        name: 'home'
+        name: "home"
       });
     });
   },
@@ -5733,7 +5822,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     axios.get("/api/customer/").then(function (_ref5) {
       var data = _ref5.data;
       return _this9.customers = data;
-    })["catch"](console.log('error'));
+    })["catch"](console.log("error"));
   },
   subProduct: function subProduct(id) {
     var _this10 = this;
@@ -13021,7 +13110,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n#em_photo[data-v-e7fc9010] {\r\n  height: 100px;\r\n  width: 135px;\n}\r\n", ""]);
+exports.push([module.i, "\n#em_photo[data-v-e7fc9010] {\r\n    height: 100px;\r\n    width: 135px;\n}\r\n", ""]);
 
 // exports
 
@@ -56192,7 +56281,7 @@ var render = function() {
                               attrs: {
                                 to: {
                                   name: "view-order",
-                                  params: { id: _vm.expense.id }
+                                  params: { id: order.id }
                                 }
                               }
                             },
@@ -56289,13 +56378,17 @@ var render = function() {
                 "div",
                 {
                   staticClass:
-                    "\n              card-header\n              py-3\n              d-flex\n              flex-row\n              align-items-center\n              justify-content-between\n            "
+                    "\n            card-header\n            py-3\n            d-flex\n            flex-row\n            align-items-center\n            justify-content-between\n          "
                 },
                 [
                   _c(
                     "h6",
                     { staticClass: "m-0 font-weight-bold text-primary" },
-                    [_vm._v("\n              Expense Insert\n            ")]
+                    [
+                      _vm._v(
+                        "\n                            Expense Insert\n                        "
+                      )
+                    ]
                   ),
                   _vm._v(" "),
                   _c(
@@ -56347,7 +56440,11 @@ var render = function() {
                                     }
                                   }
                                 },
-                                [_vm._v("+")]
+                                [
+                                  _vm._v(
+                                    "\n                                            +\n                                        "
+                                  )
+                                ]
                               ),
                               _vm._v(" "),
                               cart.pro_quantity >= 2
@@ -56362,7 +56459,11 @@ var render = function() {
                                         }
                                       }
                                     },
-                                    [_vm._v("-")]
+                                    [
+                                      _vm._v(
+                                        "\n                                            -\n                                        "
+                                      )
+                                    ]
                                   )
                                 : _c(
                                     "button",
@@ -56370,7 +56471,11 @@ var render = function() {
                                       staticClass: "btn btn-sm btn-danger",
                                       attrs: { disabled: "" }
                                     },
-                                    [_vm._v("-")]
+                                    [
+                                      _vm._v(
+                                        "\n                                            -\n                                        "
+                                      )
+                                    ]
                                   )
                             ]),
                             _vm._v(" "),
@@ -56415,7 +56520,9 @@ var render = function() {
                         "list-group-item d-flex justify-content-between align-items-center"
                     },
                     [
-                      _vm._v("Total Quantity\n                        "),
+                      _vm._v(
+                        "\n                                Total Quantity\n                                "
+                      ),
                       _c("strong", [_vm._v(_vm._s(_vm.qty))])
                     ]
                   ),
@@ -56427,7 +56534,9 @@ var render = function() {
                         "list-group-item d-flex justify-content-between align-items-center"
                     },
                     [
-                      _vm._v("Sub Total\n                        "),
+                      _vm._v(
+                        "\n                                Sub Total\n                                "
+                      ),
                       _c("strong", [_vm._v(_vm._s(_vm.subtotal) + " $")])
                     ]
                   ),
@@ -56439,7 +56548,9 @@ var render = function() {
                         "list-group-item d-flex justify-content-between align-items-center"
                     },
                     [
-                      _vm._v("Vat:\n                        "),
+                      _vm._v(
+                        "\n                                Vat:\n                                "
+                      ),
                       _c("strong", [_vm._v(_vm._s(_vm.vats.vat) + " %")])
                     ]
                   ),
@@ -56451,7 +56562,9 @@ var render = function() {
                         "list-group-item d-flex justify-content-between align-items-center"
                     },
                     [
-                      _vm._v("Total Amount\n                        "),
+                      _vm._v(
+                        "\n                                Total Amount\n                                "
+                      ),
                       _c("strong", [
                         _vm._v(
                           _vm._s(
@@ -56512,7 +56625,12 @@ var render = function() {
                         return _c(
                           "option",
                           { domProps: { value: customer.id } },
-                          [_vm._v(_vm._s(customer.name) + " ")]
+                          [
+                            _vm._v(
+                              _vm._s(customer.name) +
+                                "\n                                "
+                            )
+                          ]
                         )
                       }),
                       0
@@ -56566,7 +56684,7 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("label", { attrs: { for: "" } }, [_vm._v("Pay  By")]),
+                    _c("label", { attrs: { for: "" } }, [_vm._v("Pay By")]),
                     _vm._v(" "),
                     _c(
                       "select",
@@ -56619,7 +56737,11 @@ var render = function() {
                         staticClass: "btn btn-success",
                         attrs: { type: "submit" }
                       },
-                      [_vm._v("Submit")]
+                      [
+                        _vm._v(
+                          "\n                                Submit\n                            "
+                        )
+                      ]
                     )
                   ]
                 )
@@ -56769,11 +56891,11 @@ var render = function() {
                                               { staticClass: "card-title" },
                                               [
                                                 _vm._v(
-                                                  "\n                            " +
+                                                  "\n                                                        " +
                                                     _vm._s(
                                                       product.product_name
                                                     ) +
-                                                    "\n                          "
+                                                    "\n                                                    "
                                                 )
                                               ]
                                             ),
@@ -56787,7 +56909,7 @@ var render = function() {
                                                   },
                                                   [
                                                     _vm._v(
-                                                      "Avilable " +
+                                                      "Avilable\n                                                        " +
                                                         _vm._s(
                                                           product.product_quantity
                                                         )
@@ -56901,11 +57023,11 @@ var render = function() {
                                           { staticClass: "card-title" },
                                           [
                                             _vm._v(
-                                              "\n                          " +
+                                              "\n                                                    " +
                                                 _vm._s(
                                                   getproduct.product_name
                                                 ) +
-                                                "\n                        "
+                                                "\n                                                "
                                             )
                                           ]
                                         ),
@@ -56919,7 +57041,7 @@ var render = function() {
                                               },
                                               [
                                                 _vm._v(
-                                                  "Avilable " +
+                                                  "Avilable\n                                                    " +
                                                     _vm._s(
                                                       getproduct.product_quantity
                                                     )
@@ -56981,7 +57103,7 @@ var staticRenderFns = [
               staticClass: "breadcrumb-item active",
               attrs: { "aria-current": "page" }
             },
-            [_vm._v("POS")]
+            [_vm._v("\n                    POS\n                ")]
           )
         ])
       ]
@@ -57021,11 +57143,13 @@ var staticRenderFns = [
       "div",
       {
         staticClass:
-          "\n              card-header\n              py-3\n              d-flex\n              flex-row\n              align-items-center\n              justify-content-between\n            "
+          "\n            card-header\n            py-3\n            d-flex\n            flex-row\n            align-items-center\n            justify-content-between\n          "
       },
       [
         _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
-          _vm._v("Products Sold")
+          _vm._v(
+            "\n                            Products Sold\n                        "
+          )
         ])
       ]
     )
@@ -79206,9 +79330,10 @@ var editcustomer = __webpack_require__(/*! ./components/customer/edit.vue */ "./
 
 
 var pos = __webpack_require__(/*! ./components/pos/pointofsale.vue */ "./resources/js/components/pos/pointofsale.vue")["default"]; //order component
+// let order = require('./components/order/order.vue').default;
 
 
-var order = __webpack_require__(/*! ./components/order/order.vue */ "./resources/js/components/order/order.vue")["default"];
+var todayorder = __webpack_require__(/*! ./components/order/order.vue */ "./resources/js/components/order/order.vue")["default"];
 
 var routes = [{
   path: '/',
@@ -79344,9 +79469,10 @@ var routes = [{
   component: pos,
   name: 'pos'
 }, //order
+// { path: '/order', component: order, name: 'order' },
 {
   path: '/order',
-  component: order,
+  component: todayorder,
   name: 'order'
 }];
 
