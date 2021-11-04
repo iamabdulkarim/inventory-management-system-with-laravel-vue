@@ -427,8 +427,7 @@
             <div class="copyright text-center my-auto">
               <span>copyright &copy; <script>
                   document.write(new Date().getFullYear());
-                </script> - developed by
-                <b><a href="https://github.com/iamabdulkarim" target="_blank">Abdul Karim</a></b>
+                </script> - developed by <b><a href="https://github.com/iamabdulkarim" target="_blank"> Abdul Karim</a></b>
               </span>
             </div>
           </div>
@@ -436,8 +435,8 @@
         <!-- Footer -->
       </div>
 
-
     </div>
+  </div>
   </div>
 
 
@@ -457,8 +456,8 @@
   </script>
   <script src="{{ asset('backend/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
   <script src="{{ asset('backend/js/ruang-admin.min.js')}}"></script>
-  <script src="{{ asset('backend/vendor/chart.js/Chart.min.js')}}"></script>
-  <script src="{{ asset('backend/js/demo/chart-area-demo.js')}}"></script>
+  <!-- <script src="{{ asset('backend/vendor/chart.js/Chart.min.js')}}"></script> -->
+  <!-- <script src="{{ asset('backend/js/demo/chart-area-demo.js')}}"></script> -->
 </body>
 
 </html>
