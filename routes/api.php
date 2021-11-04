@@ -55,4 +55,4 @@ Route::Get('/vats', 'Api\CardController@Vats');
 Route::Post('/orderdone', 'Api\PosController@OrderDone');
 
 //order Route
-Route::get('/orders', 'Api\OrderController@TodayOrder');
+Route::Get('/orders', 'Api\OrderController@TodayOrder');
