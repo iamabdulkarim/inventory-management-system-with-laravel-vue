@@ -56,3 +56,7 @@ Route::Post('/orderdone', 'Api\PosController@OrderDone');
 
 //order Route
 Route::Get('/orders', 'Api\OrderController@TodayOrder');
+
+
+Route::Get('/orders/details/{id}', 'Api\OrderController@OrderDetails');
+Route::Get('/order/orderdetails/{id}', 'Api\OrderController@OrderDetailsAll');
