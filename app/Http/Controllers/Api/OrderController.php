@@ -30,4 +30,14 @@ class OrderController extends Controller
             ->first();
         return response()->json($order);
     }
+    public function OrderDetailsAll($id)
+    {
+        // return response()->json($id);
+        $details = DB::table('order_details')
+            ->join('products', 'order_details.product_id', 'products.id')
+            ->where('order_details.order_id', $id)
+            ->select('products.product_name', 'products.product_code', 'products.image', 'order_details.*')
+            ->first();
+        return response()->json($details);
+    }
 }
