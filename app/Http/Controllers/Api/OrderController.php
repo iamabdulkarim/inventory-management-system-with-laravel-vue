@@ -19,4 +19,15 @@ class OrderController extends Controller
             ->orderBy('orders.id', 'DESC')->get();
         return response()->json($order);
     }
+
+    public function OrderDetails($id)
+    {
+        // return response()->json($id);
+        $order = DB::table('orders')
+            ->join('customers', 'orders.customer_id', 'customers.id')
+            ->where('orders.id', $id)
+            ->select('customers.name', 'customers.phone', 'customers.address', 'orders.*')
+            ->first();
+        return response()->json($order);
+    }
 }
