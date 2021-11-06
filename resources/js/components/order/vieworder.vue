@@ -70,16 +70,27 @@
                           "
                         >
                           <h6 class="m-0 font-weight-bold text-primary">
-                            Simple Tables
+                            Order Details
                           </h6>
                         </div>
                         <div class="table-responsive">
                           <ul class="list-group">
-                            <li class="list-group-item">An item</li>
-                            <li class="list-group-item">A second item</li>
-                            <li class="list-group-item">A third item</li>
-                            <li class="list-group-item">A fourth item</li>
-                            <li class="list-group-item">And a fifth one</li>
+                            <li class="list-group-item">
+                              <b>Sub Total : </b>{{ orders.sub_total }} $
+                            </li>
+
+                            <li class="list-group-item">
+                              <b>Vat : </b>{{ orders.vat }} $
+                            </li>
+                            <li class="list-group-item">
+                              <b>Total Amount : </b>{{ orders.total }} $
+                            </li>
+                            <li class="list-group-item">
+                              <b>Pay : </b>{{ orders.pay }} $
+                            </li>
+                            <li class="list-group-item">
+                              <b>Due : </b>{{ orders.due }} $
+                            </li>
                           </ul>
                         </div>
                         <div class="card-footer"></div>
