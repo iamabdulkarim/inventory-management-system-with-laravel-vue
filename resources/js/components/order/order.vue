@@ -41,9 +41,9 @@
                                     :key="order.id"
                                 >
                                     <td>{{ order.name }}</td>
-                                    <td>{{ order.total }}</td>
-                                    <td>{{ order.pay }}</td>
-                                    <td>{{ order.due }}</td>
+                                    <td>{{ order.total }} $</td>
+                                    <td>{{ order.pay }} $</td>
+                                    <td>{{ order.due }} $</td>
                                     <td>{{ order.payby }}</td>
 
                                     <td>

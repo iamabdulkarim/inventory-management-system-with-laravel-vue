@@ -37,7 +37,7 @@ class OrderController extends Controller
             ->join('products', 'order_details.product_id', 'products.id')
             ->where('order_details.order_id', $id)
             ->select('products.product_name', 'products.product_code', 'products.image', 'order_details.*')
-            ->first();
+            ->get();
         return response()->json($details);
     }
 }
