@@ -120,7 +120,7 @@ export const routes = [
 
     { path: '/view-order/:id', component: vieworder, name: 'view-order' },
     //search order
-    { path: '/searchorder', component: searchorder, name: 'searchorder' },
+    { path: '/searchorder', component: searchorder, name:'searchorder'},
 
     
 ]
