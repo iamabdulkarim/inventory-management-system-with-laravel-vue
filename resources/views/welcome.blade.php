@@ -171,7 +171,7 @@
               <div class="bg-white py-2 collapse-inner rounded">
 
                 <router-link to="/order" class="collapse-item">Today Order</router-link>
-                <router-link to="/order-view" class="collapse-item">Search</router-link>
+                <router-link to="/search-order" class="collapse-item">Search</router-link>
 
               </div>
             </div>
