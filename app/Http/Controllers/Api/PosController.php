@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use DateTime;
 use Illuminate\Http\Request;
 use DB;
 
@@ -60,5 +61,26 @@ class PosController extends Controller
         }
         DB::table('pos')->delete();
         return response('done');
+    }
+
+    public function SearchOrderDate(Request $request)
+    {
+        // $orderdate = $request->date;
+        // $newdate = new DateTime($orderdate);
+        // $done = $newdate->format('d/m/Y');
+
+        $order = DB::table('orders')
+            ->join('customers', 'orders.customer_id', 'customers.id')
+            ->select('customers.name', 'orders.*')
+            // ->where('orders.order_date', $done)
+            ->get();
+
+        return response()->json($order);
+    }
+    public function TodaySell()
+    {
+        $date = date('d/m/Y');
+        $sell = DB::table('orders')->where('order_date', $date)->sum('total');
+        return response()->json($sell);
     }
 }
