@@ -1,3 +1,5 @@
+
+
 <template>
   <div>
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -16,7 +18,7 @@
             <div class="row align-items-center">
               <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-uppercase mb-1">
-                  Today Sell Amount(Monthly)
+                  Today Sell Amount
                 </div>
                 <div class="h5 mb-0 font-weight-bold text-gray-800">
                   {{ todaysell }}
@@ -42,12 +44,14 @@
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-uppercase mb-1">
-                  Sales
+                  Today Income
                 </div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">650</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                  ${{ income }}
+                </div>
                 <div class="mt-2 mb-0 text-muted text-xs">
                   <span class="text-success mr-2"
-                    ><i class="fas fa-arrow-up"></i> 12%</span
+                    ><i class="fas fa-arrow-up"></i>${{ income }}</span
                   >
                   <span>Since last years</span>
                 </div>
@@ -66,10 +70,10 @@
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-uppercase mb-1">
-                  New User
+                  Today Due
                 </div>
                 <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-                  366
+                  $ {{ due }}
                 </div>
                 <div class="mt-2 mb-0 text-muted text-xs">
                   <span class="text-success mr-2"
@@ -92,9 +96,11 @@
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-uppercase mb-1">
-                  Pending Requests
+                  Today Expenses
                 </div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                  ${{ expense }}
+                </div>
                 <div class="mt-2 mb-0 text-muted text-xs">
                   <span class="text-danger mr-2"
                     ><i class="fas fa-arrow-down"></i> 1.10%</span
@@ -107,6 +113,66 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div class="col-lg-12 mb-4">
+        <!-- Simple Tables -->
+        <div class="card">
+          <div
+            class="
+              card-header
+              py-3
+              d-flex
+              flex-row
+              align-items-center
+              justify-content-between
+            "
+          >
+            <h6 class="m-0 font-weight-bold text-primary">
+              Out of Stock Product
+            </h6>
+          </div>
+          <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th>product_name</th>
+                  <th>image</th>
+
+                  <th>product_code</th>
+                  <th>buying_price</th>
+                  <th>Status</th>
+
+                  <th>buying_date</th>
+
+                  <th>Product Quantity</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="product in products" :key="product.id">
+                  <td>{{ product.product_name }}</td>
+                  <td>
+                    <img :src="product.image" id="em_photo" />
+                  </td>
+                  <!-- <td>{{ product.category_name }}</td> -->
+                  <td>{{ product.product_code }}</td>
+                  <td>{{ product.buying_price }}</td>
+                  <td v-if="product.product_quantity >= 1">
+                    <span class="badge badge-success">Avilable</span>
+                  </td>
+                  <td v-else="">
+                    <span class="badge badge-danger">Stock Out</span>
+                  </td>
+
+                  <td>{{ product.buying_date }}</td>
+
+                  <td>{{ product.product_quantity }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card-footer"></div>
         </div>
       </div>
 
@@ -130,16 +196,46 @@ export default {
       income: "",
       due: "",
       expense: "",
+      products: "",
     };
   },
   mounted() {
     this.TodaySell();
+    this.TodayIncome();
+    this.TodayDue();
+    this.TodayExpense();
+    this.StockOut();
   },
   methods: {
     TodaySell() {
       axios
-        .get("/api/today/sell/")
+        .get("/api/today/sell")
         .then(({ data }) => (this.todaysell = data))
+        .catch();
+    },
+    TodayIncome() {
+      axios
+        .get("/api/today/income")
+        .then(({ data }) => (this.income = data))
+        .catch();
+    },
+    TodayDue() {
+      axios
+        .get("/api/today/due")
+        .then(({ data }) => (this.due = data))
+        .catch();
+    },
+    TodayExpense() {
+      axios
+        .get("/api/today/expense")
+        .then(({ data }) => (this.expense = data))
+        .catch();
+    },
+
+    StockOut() {
+      axios
+        .get("/api/today/stockout")
+        .then(({ data }) => (this.products = data))
         .catch();
     },
   },
